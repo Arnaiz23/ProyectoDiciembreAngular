@@ -2,10 +2,10 @@
     <!-- CONTAINER IZQUIERDO CON LAS OPCIONES DE DEPORTE, TARJETAS Y EL FILTRO -->
     <div class="main_container_izquierda">
         <div class="main_container_izquierda_deportes">
-            <a href="javascript:void(0)" id="futbol">Futbol</a>
-            <a href="javascript:void(0)" id="baloncesto">Baloncesto</a>
-            <a href="javascript:void(0)" id="voleibol">Voleibol</a>
-            <a href="javascript:void(0)" id="running">Running</a>
+            <a [routerLink]="['/futbol']" id="futbol" [routerLinkActive]="'deporteActive'">Futbol</a>
+            <a [routerLink]="['/baloncesto']" id="baloncesto" [routerLinkActive]="'deporteActive'">Baloncesto</a>
+            <a [routerLink]="['/voleibol']" id="voleibol" [routerLinkActive]="'deporteActive'">Voleibol</a>
+            <a [routerLink]="['/running']" id="running" [routerLinkActive]="'deporteActive'">Running</a>
         </div>
         <div class="main_container_izquierda_filtro">
             <select name="filtro" id="filtro">
@@ -14,62 +14,7 @@
                 <option value="2" id="filtroMenor">Precio: más barato primero</option>
             </select>
         </div>
-        <div class="main_container_izquierda_tarjetas">
-            <!--<div class="card">
-            <img src="img/voley.png" alt="" class="card_imagenes">
-            <div class="card_informacion">
-                <h3 class="card_informacion_titulo">Lorem</h3>
-                <p class="card_informacion_texto">Lorem ipsum dolor sit amet.</p>
-                <div class="card_informacion_precio">
-                    <h3>Precio</h3>
-                    <p>25€</p>
-                </div>
-                <div class="card_informacion_carrito">
-                    <div class="card_informacion_carrito_cantidad">
-                        <button type="button" id="add">+</button>
-                        <input type="text" name="cantidad" id="cantidadTarjeta">
-                        <button type="button" id="remove">-</button>
-                    </div>
-                    <div class="card_informacion_add">
-                        <p>Añadir</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="img/voley.png" alt="" class="card_imagenes">
-            <div class="card_informacion">
-                <h3 class="card_informacion_titulo">Lorem</h3>
-                <p class="card_informacion_texto">Lorem ipsum dolor sit amet.</p>
-                <div class="card_informacion_precio">
-                    <h3>Precio</h3>
-                    <p>25€</p>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="img/voley.png" alt="" class="card_imagenes">
-            <div class="card_informacion">
-                <h3 class="card_informacion_titulo">Lorem</h3>
-                <p class="card_informacion_texto">Lorem ipsum dolor sit amet.</p>
-                <div class="card_informacion_precio">
-                    <h3>Precio</h3>
-                    <p>25€</p>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="img/voley.png" alt="" class="card_imagenes">
-            <div class="card_informacion">
-                <h3 class="card_informacion_titulo">Lorem</h3>
-                <p class="card_informacion_texto">Lorem ipsum dolor sit amet.</p>
-                <div class="card_informacion_precio">
-                    <h3>Precio</h3>
-                    <p>25€</p>
-                </div>
-            </div>
-        </div>-->
-        </div>
+        <router-outlet></router-outlet>
     </div>
     <!-- CONTENEDOR DERECHO CON EL CARRITO, BUSCAR Y LAS OPCIONES DE FILTRO -->
     <div class="main_container_derecha">

@@ -1,5 +1,3 @@
-
-/* ATERRIZAJE */
 /* CONTENEDOR IZQUIERDA */
 .main_container_izquierda{
     /* border: 1px solid #f00; */
@@ -31,11 +29,6 @@
     .main_container_izquierda_deportes a:hover{
         border-color: var(--rojo-oscuro-claro);
     }
-
-    .deporteActive{
-        border-color: var(--verde) !important;
-    }
-
     /* FILTRO */
     .main_container_izquierda_filtro{
         width: max-content;
