@@ -1,0 +1,106 @@
+/* CONTENEDOR IZQUIERDA */
+.main_container_izquierda{
+    background-color: var(--gris-claro);
+    width: 75%;
+    margin: 30px 20px;
+    padding: 40px 20px;
+}
+    /* PREGUNTAS */
+    .main_container_izquierda_pregunta{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 50%;
+        cursor: pointer;
+        border-bottom: 1px solid rgba(0,0,0,.4);
+        margin: 5% 10%;
+        user-select: none;
+    }
+    /* RESPUESTA */
+    .main_container_izquierda_respuesta{
+        width: 50%;
+        background-color: rgba(221,221,221,.5);
+        margin: -3% 0 -3% 10%;
+        display: none;
+        padding: 20px;
+        font-weight: 200;
+        line-height: 26px;
+    }
+    .main_container_izquierda_respuesta:last-child{
+        margin: -3% 0 0 10%;
+    }
+    .ver_respuesta{
+        display: block;
+    }
+
+/* CONTENEDOR DERECHA */
+.main_container_derecha{
+    background-color: var(--gris-claro);
+    width: 25%;
+    margin: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+}
+    /* TITULO */
+    .pregunta_titulo{
+        font-size: 1.3rem;
+        margin: 30px auto;
+    }
+    /* INPUT CORREO */
+    #correoPregunta{
+        margin-bottom: 10px;
+        border: 1px solid #000;
+        padding: 5px 10px;
+        width: 75%;
+    }
+    #correoPregunta:focus{
+        outline: none;
+    }
+    /* INPUT PREGUNTA*/
+    .main_container_derecha textarea{
+        margin-bottom: 20px;
+        width: 75%;
+        height: 100px;
+        padding: 10px;
+        font-weight: 200;
+        border: 1px solid #000;
+        resize: none;
+    }
+    .main_container_derecha textarea:focus{
+        border: 1px solid #000;
+        outline: none;
+    }
+    /* BOTON */
+    #pregunta_enviar{
+        width: 80%;
+        margin: 10px auto 20px;
+        padding: 10px;
+        cursor: pointer;
+        background-color: var(--rojo-oscuro);
+        border: none;
+        color: #fff;
+        font-weight: bold;
+        letter-spacing: 2px;
+        transition: background-color .3s;
+        display: flex;
+        justify-content: center;
+    }
+    #pregunta_enviar:hover{
+        background-color: #ac0909;
+    }
+
+
+@media screen and (max-width:1400px) {
+    .main_container_izquierda_pregunta,.main_container_izquierda_respuesta{
+        width: 60%;
+    }
+    .main_container_derecha{
+        width: 27%;
+    }
+    .main_container_izquierda{
+        width: 64%;
+    }
+}

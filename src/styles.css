@@ -1,1 +1,207 @@
 /* You can add global styles to this file, and also import other style files */
+:root{
+    --rojo-oscuro-claro: #a22;
+    --negro-main: #1f1f1f;
+    --rojo-oscuro:  #870807;
+    --gris:  #6c6c6c;
+    --gris-claro:  #d5d5d6;
+    --fucsia: #e0d;
+    --verde: #3b3;
+    --verde-oscuro: rgb(37, 145, 37);
+}
+body{
+    font-family: 'Libre Franklin', sans-serif;
+    overflow-x: hidden;
+}
+
+/* HEADER NAV */
+    .header_nav{
+        background-color: #000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+    }
+    /* BOTON HOME */
+        .header_nav_home{
+            background-color: var(--rojo-oscuro-claro);
+            padding: 10px;
+            border-radius: 5px;
+            margin-left: 25px;
+        }
+        .header_nav_home a{
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .header_nav_home a span{
+            margin-right: 10px;
+        }
+    /* NAV OPCIONES */
+        .header_nav_opciones{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-right: 10px;
+        }
+        /* BOTON INICIO SESION */
+        /* .header_nav_opciones_inicio{
+            background-color: var(--rojo-oscuro-claro);
+            padding: 10px;
+            border-radius: 5px;
+        } */
+        .header_nav_opciones_inicio span{
+            margin-right: 10px;
+        }
+        #administrar_sesion{
+            background-color: var(--verde);
+        }
+        .header_nav_opciones_inicio a{
+            background-color: var(--rojo-oscuro-claro);
+            padding: 10px;
+            border-radius: 5px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        /* BOTON MENU */
+        .header_nav_opciones_menu{
+            /* background-color: #777; */
+            padding: 10px;
+            margin-left: 20px;
+            cursor: pointer;
+        }
+        .header_nav_opciones_menu span{
+            color: #fff;
+            font-size: 25px;
+        }
+
+/* HEADER NOMBRE BRAND */
+    .header_nombreBrand{
+        /* background-color: #777; */
+        background: radial-gradient(circle,#bbb,#777);
+        width: 100%;
+        height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .header_nombreBrand h1{
+        margin: 0;
+        font-size: 70px;
+        font-weight: 500;
+        user-select: none;
+    }
+    .header_nombreBrand img{
+        width: 120px;
+        margin-right: 15px;
+        user-select: none;
+    }
+
+/* MENU */
+    nav{
+        background-color: var(--rojo-oscuro-claro);
+        width: 15%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        flex-direction: column;
+        /* position: fixed; */
+        position: absolute;
+        top: 10%;
+        right: 2%;
+        padding: 20px;
+        /* transform: translateX(120%); */
+        transition: transform .6s;
+    }
+    nav a{
+        margin: 10px;
+        margin-left: 30px;
+        font-size: 20px;
+        color: #ccc;
+        text-decoration: none;
+        transition: color .3s;
+    }
+    nav a:hover{
+        color: #fff;
+    }
+    nav a span{
+        margin-right: 20px;
+    }
+    .ver{
+        transform: translateX(0);
+        /* transition: transform .6s; */
+    }
+
+/* MAIN */
+main{
+    background-color:  var(--negro-main) ;
+}
+.main_container{
+    /* border: 1px solid #000; */
+    width: 95%;
+    margin: auto;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+}
+
+/* FOOTER */
+footer{
+    background-color: var(--rojo-oscuro-claro);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    user-select: none;
+}
+    /* FOOTER NOMBRE BRAND */
+    .footer_nombreBrand{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .footer_nombreBrand h1{
+        font-weight: 500;
+    }
+    .footer_nombreBrand img{
+        width: 70px;
+        margin-right: 10px;
+    }
+    /* FOOTER COPYRIGHT */
+    .footer_copyright p{
+        font-size: 20px;
+        font-weight: 200;
+    }
+    /* FOOTER REDES */
+    .footer_redes{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .icon-footer{
+        padding: 13px;
+        border: 1px solid #000;
+        border-radius: 50%;
+        font-size: 30px;
+        margin-right: 15px;
+        cursor: pointer;
+        transition: background-color .3s, color .3s, border-color .3s;
+    }
+    .icon-footer:hover{
+        background-color: #000;
+        color: #a22;
+        border-color: #a22;
+    }
+
+
+@media screen and (max-width:1366px) {
+    nav{
+        width: 20%;
+        top: 20%;
+    }
+    nav a{
+        font-size: 18px;
+    }
+}
