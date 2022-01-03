@@ -76,27 +76,6 @@ body{
             font-size: 25px;
         }
 
-/* HEADER NOMBRE BRAND */
-    .header_nombreBrand{
-        /* background-color: #777; */
-        background: radial-gradient(circle,#bbb,#777);
-        width: 100%;
-        height: 300px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .header_nombreBrand h1{
-        margin: 0;
-        font-size: 70px;
-        font-weight: 500;
-        user-select: none;
-    }
-    .header_nombreBrand img{
-        width: 120px;
-        margin-right: 15px;
-        user-select: none;
-    }
 
 /* MENU */
     nav{

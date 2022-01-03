@@ -1,0 +1,40 @@
+<app-slider></app-slider>
+<div id="main">
+    <div class="main_informacion_izquierda">
+        <ul>
+            <li id="adminPreguntas" [routerLink]="['/admin/preguntas']">Preguntas</li>
+            <li id="adminProductos" [routerLink]="['/admin/productos']">Productos</li>
+            <li id="adminAdd" (click)="addDato()">Añadir</li>
+            <!-- <li>Opciones Filtro</li> -->
+        </ul>
+    </div>
+    <div class="main_informacion_derecha">
+        <!-- <h3>Selecciona una opción</h3> -->
+        <router-outlet></router-outlet>
+        
+    </div>
+    <!-- <div class="main_informacion_opciones ver_opciones">
+    <p>Añadir</p>
+    <p>Eliminar</p>
+    <p>Modificar</p>
+    </div> -->
+        <!-- <div class="fondo">
+        <div class="containerDentro">
+            <label for="imagenProductoMod">Imagen</label>
+            <input type="file" name="imagenProductoMod" id="imagenProductoMod">
+            <label for="nombreProductoMod">Nombre</label>
+            <input type="text" name="nombreProductoMod" id="nombreProductoMod">
+            <label for="marcaProductoMod">Marca</label>
+            <input type="text" name="marcaProductoMod" id="marcaProductoMod">
+            <label for="tipoProductoMod">Tipo</label>
+            <input type="text" name="tipoProductoMod" id="tipoProductoMod">
+            <label for="descripcionCortaMod">Descripcion corta</label>
+            <textarea name="descripcionCortaMod" id="descripcionCortaMod" cols="30" rows="10"></textarea>
+            <label for="descripcionLargaMod">Descripcion Larga</label>
+            <textarea name="descripcionLargaMod" id="descripcionLargaMod" cols="30" rows="10"></textarea>
+            <label for="precioProductoMod">Precio</label>
+            <input type="number" name="precioProductoMod" id="precioProductoMod">
+            <button type="button" class="boton">Actualizar</button>
+        </div>
+    </div> -->
+</div>

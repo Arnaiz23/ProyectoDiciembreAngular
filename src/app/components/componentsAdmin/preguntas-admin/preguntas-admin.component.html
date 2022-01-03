@@ -1,0 +1,10 @@
+<h3>Preguntas</h3>
+<div class="preguntas">
+    <div class="preguntaIndividual" *ngFor="let pregunta of preguntas">
+        <div class="texto">
+            <h5>{{pregunta.pregunta}}</h5>
+            <p>{{pregunta.respuesta}}</p>
+        </div>
+        <span class="modificarPregunta icon-plus"></span>
+    </div>
+</div>

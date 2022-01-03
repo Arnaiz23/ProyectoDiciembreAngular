@@ -1,0 +1,20 @@
+<div class="main_container">
+    <div class="main_container_total">
+        <div class="main_container_izquierda">
+            <img src="assets/images/voley.png" alt="" class="card_imagenes" *ngIf="!producto.imagen">
+            <img src="{{url+'get-image/'+producto.imagen}}" alt="" class="card_imagenes" *ngIf="producto.imagen">
+        </div>
+        <div class="main_container_derecha">
+            <h2>{{producto.nombre}}</h2>
+            <div class="tipos">
+                <h3>{{producto.marca}}</h3>
+                <h3>{{producto.tipo}}</h3>
+            </div>
+            <p>{{producto.descripcion}}</p>
+            <div class="precio">
+                <h3>Precio</h3>
+                <h3>{{producto.precio}} €</h3>
+            </div>
+        </div>
+    </div>
+</div>

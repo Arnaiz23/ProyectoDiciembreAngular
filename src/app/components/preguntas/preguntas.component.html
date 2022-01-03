@@ -1,6 +1,15 @@
+<app-slider></app-slider>
 <div class="main_container">
     <div class="main_container_izquierda">
-        
+        <div *ngFor="let pregunta of preguntas">
+            <div class="main_container_izquierda_pregunta">
+                <h3 class="pregunta_tipica">{{pregunta.pregunta}}</h3>
+                <span class="icon-circle-down"></span>
+            </div>
+            <div class="main_container_izquierda_respuesta">
+                <p>{{pregunta.respuesta}}</p>
+            </div>
+        </div>
     </div>
     <div class="main_container_derecha">
         <h3 class="pregunta_titulo">Dejanos tu pregunta</h3>

@@ -17,6 +17,14 @@ import { FutbolComponent } from './components/futbol/futbol.component';
 import { BaloncestoComponent } from './components/baloncesto/baloncesto.component';
 import { VoleibolComponent } from './components/voleibol/voleibol.component';
 import { RunningComponent } from './components/running/running.component';
+import { ProductoComponent } from './components/producto/producto.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { ProductosComponent } from './components/componentsAdmin/productos/productos.component';
+import { PreguntasAdminComponent } from './components/componentsAdmin/preguntas-admin/preguntas-admin.component';
+import { LoginComponent } from './components/login/login.component';
+import { SliderComponent } from './components/slider/slider.component';
+import { InicioComponent } from './components/componentesLogin/inicio/inicio.component';
+import { RegistroComponent } from './components/componentesLogin/registro/registro.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +38,15 @@ import { RunningComponent } from './components/running/running.component';
     FutbolComponent,
     BaloncestoComponent,
     VoleibolComponent,
-    RunningComponent
+    RunningComponent,
+    ProductoComponent,
+    AdminComponent,
+    ProductosComponent,
+    PreguntasAdminComponent,
+    LoginComponent,
+    SliderComponent,
+    InicioComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,

@@ -3,11 +3,11 @@ import { Pregunta } from 'src/app/models/preguntas';
 import { PreguntasService } from 'src/app/service/preguntas.service';
 
 @Component({
-  selector: 'app-preguntas',
-  templateUrl: './preguntas.component.html',
-  styleUrls: ['./preguntas.component.css']
+  selector: 'app-preguntas-admin',
+  templateUrl: './preguntas-admin.component.html',
+  styleUrls: ['../../admin/admin.component.css']
 })
-export class PreguntasComponent implements OnInit {
+export class PreguntasAdminComponent implements OnInit {
 
   public preguntas!: Pregunta[];
 
@@ -18,7 +18,7 @@ export class PreguntasComponent implements OnInit {
   ngOnInit(): void {
     this._preguntasService.getPreguntas().subscribe(
       response =>{
-        // console.log(response.preguntas)
+        // console.log(response.preguntas);
         this.preguntas = response.preguntas;
       },
       error =>{

@@ -6,8 +6,8 @@ import { global } from './global';
 @Injectable({
   providedIn: 'root'
 })
-export class ProductosService {
-
+export class PreguntasService {
+  
   public url: string;
 
   constructor(
@@ -16,16 +16,7 @@ export class ProductosService {
     this.url = global.url;
   }
 
-  getDeporte(deporte: string):Observable<any>{
-    return this._http.get(this.url+"productos/"+deporte);
+  getPreguntas():Observable<any>{
+    return this._http.get(this.url+"preguntas");
   }
-
-  getProducto(id: string):Observable<any>{
-    return this._http.get(this.url+"producto/"+id);
-  }
-
-  getProductos():Observable<any>{
-    return this._http.get(this.url+"productos");
-  }
-
 }

@@ -1,5 +1,5 @@
 <div class="main_container_izquierda_tarjetas">
-    <div class="card" *ngFor="let producto of productos">
+    <div class="card" *ngFor="let producto of productos" [routerLink]="['/producto', producto._id]">
         <img src="assets/images/voley.png" alt="" class="card_imagenes" *ngIf="!producto.imagen">
         <img src="{{url+'get-image/'+producto.imagen}}" alt="" class="card_imagenes" *ngIf="producto.imagen">
         <div class="card_informacion">

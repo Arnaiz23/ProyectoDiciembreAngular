@@ -1,0 +1,21 @@
+<h3>Productos</h3>
+<!-- Ejemplo tarjetas -->
+<table class="tabla" border="1">
+    <tr>
+        <td>Imagen</td>
+        <td>Nombre</td>
+        <td>Breve descripcion</td>
+        <td>Descripcion larga</td>
+        <td>Precio</td>
+    </tr>
+    <tr *ngFor="let producto of productos">
+        <td>
+            <img src="assets/images/voley.png" alt="" class="adminProductoImagen" *ngIf="!producto.imagen">
+            <img src="{{url+'get-image/'+producto.imagen}}" alt="" class="adminProductoImagen" *ngIf="producto.imagen">
+        </td>
+        <td>{{producto.nombre}}</td>
+        <td>{{producto.descripcionCorta}}</td>
+        <td>{{producto.descripcion}}</td>
+        <td>{{producto.precio}} €</td>
+    </tr>
+</table>

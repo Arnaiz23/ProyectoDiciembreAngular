@@ -8,7 +8,7 @@
         <div class="header_nav_opciones">
             <!-- BOTON INICIO SESION -->
             <div class="header_nav_opciones_inicio">
-                <a href="login.html" id="iniciar_sesion"><span class="icon-airplane"></span>INICIAR SESION</a>
+                <a [routerLink]="['/login']" id="iniciar_sesion"><span class="icon-airplane"></span>INICIAR SESION</a>
             </div>
             <!-- BOTON MENU -->
             <div class="header_nav_opciones_menu">
@@ -16,11 +16,7 @@
             </div>
         </div>
     </div>
-    <!-- HEADER NOMBRE DE EMPRESA CON LOGO -->
-    <div class="header_nombreBrand">
-        <img src="assets/images/voley.png" alt="Logo MetaSport ">
-        <h1>MetaSport</h1>
-    </div>
+    
     <!-- MENU -->
     <nav>
         <a [routerLink]="['/']"><span class="icon-home"></span>Home</a>
