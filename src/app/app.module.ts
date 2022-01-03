@@ -25,6 +25,11 @@ import { LoginComponent } from './components/login/login.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { InicioComponent } from './components/componentesLogin/inicio/inicio.component';
 import { RegistroComponent } from './components/componentesLogin/registro/registro.component';
+import { UsuarioComponent } from './components/usuario/usuario.component';
+import { PedidosUsuarioComponent } from './components/componentesUsuario/pedidos-usuario/pedidos-usuario.component';
+import { AdministrarUsuarioComponent } from './components/componentesUsuario/administrar-usuario/administrar-usuario.component';
+import { DireccionesUsuarioComponent } from './components/componentesUsuario/direcciones-usuario/direcciones-usuario.component';
+import { TarjetasUsuarioComponent } from './components/componentesUsuario/tarjetas-usuario/tarjetas-usuario.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +51,12 @@ import { RegistroComponent } from './components/componentesLogin/registro/regist
     LoginComponent,
     SliderComponent,
     InicioComponent,
-    RegistroComponent
+    RegistroComponent,
+    UsuarioComponent,
+    PedidosUsuarioComponent,
+    AdministrarUsuarioComponent,
+    DireccionesUsuarioComponent,
+    TarjetasUsuarioComponent
   ],
   imports: [
     BrowserModule,

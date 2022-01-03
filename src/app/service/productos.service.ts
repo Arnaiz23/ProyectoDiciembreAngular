@@ -9,11 +9,13 @@ import { global } from './global';
 export class ProductosService {
 
   public url: string;
+  public precio!: number;
 
   constructor(
     private _http: HttpClient
   ) { 
     this.url = global.url;
+    this.precio = 0;
   }
 
   getDeporte(deporte: string):Observable<any>{
@@ -26,6 +28,11 @@ export class ProductosService {
 
   getProductos():Observable<any>{
     return this._http.get(this.url+"productos");
+  }
+
+  cambiarPrecio(precio: number){
+    this.precio += precio;
+    return this.precio;
   }
 
 }

@@ -5,6 +5,10 @@ import { BaloncestoComponent } from './components/baloncesto/baloncesto.componen
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { InicioComponent } from './components/componentesLogin/inicio/inicio.component';
 import { RegistroComponent } from './components/componentesLogin/registro/registro.component';
+import { AdministrarUsuarioComponent } from './components/componentesUsuario/administrar-usuario/administrar-usuario.component';
+import { DireccionesUsuarioComponent } from './components/componentesUsuario/direcciones-usuario/direcciones-usuario.component';
+import { PedidosUsuarioComponent } from './components/componentesUsuario/pedidos-usuario/pedidos-usuario.component';
+import { TarjetasUsuarioComponent } from './components/componentesUsuario/tarjetas-usuario/tarjetas-usuario.component';
 import { PreguntasAdminComponent } from './components/componentsAdmin/preguntas-admin/preguntas-admin.component';
 import { ProductosComponent } from './components/componentsAdmin/productos/productos.component';
 
@@ -16,6 +20,7 @@ import { LoginComponent } from './components/login/login.component';
 import { PreguntasComponent } from './components/preguntas/preguntas.component';
 import { ProductoComponent } from './components/producto/producto.component';
 import { RunningComponent } from './components/running/running.component';
+import { UsuarioComponent } from './components/usuario/usuario.component';
 import { VoleibolComponent } from './components/voleibol/voleibol.component';
 
 
@@ -46,6 +51,15 @@ const appRoutes: Routes = [
       {path: '', redirectTo: '/login/registro', pathMatch: 'full'},
       {path: 'inicio', component: InicioComponent},
       {path: 'registro', component: RegistroComponent}
+    ]
+  },
+  {path: 'usuario', component: UsuarioComponent,
+    children: [
+      {path: '', redirectTo: '/usuario/pedidos', pathMatch: 'full'},
+      {path: 'pedidos', component: PedidosUsuarioComponent},
+      {path: 'administrar', component: AdministrarUsuarioComponent},
+      {path: 'direcciones', component: DireccionesUsuarioComponent},
+      {path: 'tarjetas', component: TarjetasUsuarioComponent},
     ]
   },
   {path: '**', component: ErrorComponent}

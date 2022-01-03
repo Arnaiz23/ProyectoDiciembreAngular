@@ -1,0 +1,19 @@
+<div id="contenedor_administrarUsuario">
+    <h3>Datos</h3>
+    <p>Nombre</p>
+    <input type="text" name="nombreAdministracion" id="nombreAdministracion" placeholder="${usuario.nombre}">
+    <p>Apellidos</p>
+    <input type="text" name="apellidosAdministracion" id="apellidosAdministracion" placeholder="${usuario.apellidos}">
+    <p>Correo</p>
+    <input type="text" name="correoAdministracion" id="correoAdministracion" placeholder="${usuario.correo}">
+    <div class="linea"></div>
+    <h3>Contraseña</h3>
+    <p>Cambiar contraseña</p>
+    <input type="password" name="passwordAdministracion" id="passwordAdministracion">
+    <p>Confirmación</p>
+    <input type="password" name="passwordAdministracion2" id="passwordAdministracion2">
+    <button type="button" id="actualizarCuenta" onclick="actualizarCuenta()">Actualizar</button>
+    <div class="linea"></div>
+    <h3>Eliminar cuenta</h3>
+    <button type="button" id="eliminarCuenta">Eliminar</button>
+</div>

@@ -1,28 +1,34 @@
-<app-slider></app-slider>
+<app-slider [size]="'small'"></app-slider>
 <div class="main_container">
     <!-- CONTENEDOR IZQUIERDO CON LOS OBJETOS QUE METIDO EN EL CARRITO -->
     <div class="main_container_izquierda">
         
-       <!--  <div class="main_container_izquierda_articulo">
-            <img src="img/voley.png" alt="">
-            <h3 class="articulo_subtitulo">Nombre</h3>
-            <p class="articulo_cantidad">Cantidad:1</p>
-            <span class="icon-bin"></span>
+        <div *ngIf="!carrito || carrito.length==0">
+            <h2 id="carrito_vacio">El carrito esta vacío actualmente</h2>
         </div>
-        <div class="linea"></div>
-        <div class="main_container_izquierda_articulo">
-            <img src="img/voley.png" alt="">
-            <h3 class="articulo_subtitulo">Nombre</h3>
-            <p class="articulo_cantidad">Cantidad:1</p>
-            <span class="icon-bin"></span>
+
+        <div *ngIf="carrito">
+            <div class="main_container_izquierda_articulo">
+                <img src="assets/images/voley.png" alt="">
+                <h3 class="articulo_subtitulo">Nombre</h3>
+                <p class="articulo_cantidad">Cantidad:1</p>
+                <span class="icon-bin"></span>
+            </div>
+            <div class="linea"></div>
+            <div class="main_container_izquierda_articulo">
+                <img src="assets/images/voley.png" alt="">
+                <h3 class="articulo_subtitulo">Nombre</h3>
+                <p class="articulo_cantidad">Cantidad:1</p>
+                <span class="icon-bin"></span>
+            </div>
+            <div class="linea"></div>
+            <div class="main_container_izquierda_articulo">
+                <img src="assets/images/voley.png" alt="">
+                <h3 class="articulo_subtitulo">Nombre</h3>
+                <p class="articulo_cantidad">Cantidad: 1</p>
+                <span class="icon-bin"></span>
+            </div>
         </div>
-        <div class="linea"></div>
-        <div class="main_container_izquierda_articulo">
-            <img src="img/voley.png" alt="">
-            <h3 class="articulo_subtitulo">Nombre</h3>
-            <p class="articulo_cantidad">Cantidad: 1</p>
-            <span class="icon-bin"></span>
-        </div> -->
         <div class="main_container_izquierda_comprar">
             <p>Realizar pedido</p>
         </div>
@@ -32,7 +38,15 @@
         <h2 class="main_container_derecha_titulo"><span class="icon-cart"></span>Carrito</h2>
         <div class="main_container_derecha_carrito">
             <p>Carrito</p>
-            <!-- <p>€</p> -->
+            <p>{{precio}} €</p>
+        </div>
+    </div>
+</div>
+<div class="contenedor_informativo_logear" *ngIf="!usuario">
+    <div class="contenedor_informativo_logear_texto">
+        <p>Lo sentimos, para poder acceder a esta pestaña debes iniciar sesión</p>
+        <div class="contenedor_informativo_logear_texto_boton">
+            <button type="button" [routerLink]="['/login/inicio']">Iniciar sesion</button>
         </div>
     </div>
 </div>

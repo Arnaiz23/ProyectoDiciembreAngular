@@ -1,0 +1,17 @@
+<app-slider [size]="'small'"></app-slider>
+<div class="main_container">
+    <div class="main_container_total">
+        <div class="main_container_izquierda">
+            <p id="misPedidos" [routerLink]="['/usuario/pedidos']">Mis pedidos</p>
+            <!-- <p>Lista de deseos</p> -->
+            <p id="misDirecciones" [routerLink]="['/usuario/direcciones']">Mis direcciones</p>
+            <p id="misTarjetas" [routerLink]="['/usuario/tarjetas']">Mis tarjetas</p>
+            <p id="administrarCuenta" [routerLink]="['/usuario/administrar']">Administrar cuenta</p>
+        </div>
+        <div class="main_container_derecha">
+            <!-- <h2>Selecciona una opcion</h2> -->
+            <router-outlet></router-outlet>
+        </div>
+
+    </div>
+</div>

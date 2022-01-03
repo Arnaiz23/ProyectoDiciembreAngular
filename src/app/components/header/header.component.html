@@ -7,20 +7,25 @@
         </div>
         <div class="header_nav_opciones">
             <!-- BOTON INICIO SESION -->
-            <div class="header_nav_opciones_inicio">
+            <div class="header_nav_opciones_inicio" *ngIf="!usuario">
                 <a [routerLink]="['/login']" id="iniciar_sesion"><span class="icon-airplane"></span>INICIAR SESION</a>
+            </div>
+            <div class="header_nav_opciones_inicio" *ngIf="usuario">
+                <a [routerLink]="['/usuario']" id="iniciar_sesion"><span class="icon-airplane"></span>CUENTA</a>
             </div>
             <!-- BOTON MENU -->
             <div class="header_nav_opciones_menu">
-                <span class="icon-menu" id="botonMenu"></span>
+                <span class="icon-menu" id="botonMenu" (click)="menu()"></span>
             </div>
         </div>
     </div>
     
     <!-- MENU -->
-    <nav>
-        <a [routerLink]="['/']"><span class="icon-home"></span>Home</a>
-        <a [routerLink]="['/carrito']"><span class="icon-cart"></span>Carrito</a>
-        <a [routerLink]="['/preguntas']"><span class="icon-question"></span>Preguntas frecuentes</a>
+    <nav [ngClass]="{
+        'ver': mostrar
+    }">
+        <a (click)="menu()" [routerLink]="['/']"><span class="icon-home"></span>Home</a>
+        <a (click)="menu()" [routerLink]="['/carrito']"><span class="icon-cart"></span>Carrito</a>
+        <a (click)="menu()" [routerLink]="['/preguntas']"><span class="icon-question"></span>Preguntas frecuentes</a>
     </nav>
 </header>

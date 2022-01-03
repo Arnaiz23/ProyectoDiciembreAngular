@@ -9,7 +9,7 @@
         <label for="password">Contraseña</label>
         <input type="password" name="password" id="password" placeholder="Escribe la contraseña" class="input_datos">
         <div class="container_derecha_informacion_boton">
-            <button type="button" class="btn-login">LOGIN</button>
+            <button type="button" class="btn-login" (click)="iniciar()">LOGIN</button>
             <a [routerLink]="['/login/registro']" id="boton_sesion_contrario">No tengo cuenta</a>
         </div>
     </div>
