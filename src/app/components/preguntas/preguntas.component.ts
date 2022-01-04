@@ -10,10 +10,13 @@ import { PreguntasService } from 'src/app/service/preguntas.service';
 export class PreguntasComponent implements OnInit {
 
   public preguntas!: Pregunta[];
+  public respuesta: boolean;
 
   constructor(
     private _preguntasService: PreguntasService
-  ) { }
+  ) { 
+    this.respuesta = false;
+  }
 
   ngOnInit(): void {
     this._preguntasService.getPreguntas().subscribe(
@@ -25,6 +28,17 @@ export class PreguntasComponent implements OnInit {
         console.log(error);
       }
     )
+  }
+
+  verRespuesta(event: any){
+    let elemento = event.target.nextElementSibling;
+    if(this.respuesta){
+      this.respuesta = false;
+      elemento.classList.remove("ver_respuesta");
+    }else{
+      this.respuesta = true;
+      elemento.classList.add("ver_respuesta");
+    }
   }
 
 }

@@ -2,7 +2,7 @@
 <div class="main_container">
     <div class="main_container_izquierda">
         <div *ngFor="let pregunta of preguntas">
-            <div class="main_container_izquierda_pregunta">
+            <div class="main_container_izquierda_pregunta" (click)="verRespuesta($event)">
                 <h3 class="pregunta_tipica">{{pregunta.pregunta}}</h3>
                 <span class="icon-circle-down"></span>
             </div>
