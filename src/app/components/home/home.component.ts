@@ -1,4 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { global } from 'src/app/service/global';
 import { ProductosService } from 'src/app/service/productos.service';
 
@@ -10,15 +11,24 @@ import { ProductosService } from 'src/app/service/productos.service';
 export class HomeComponent implements OnInit {
 
   public precio: number;
-
+  public searchString!: string;
 
   constructor(
-    private _productoService: ProductosService
+    private _productoService: ProductosService,
+    private _router: Router
   ) { 
     this.precio = _productoService.cambiarPrecio(20);
   }
 
   ngOnInit(): void {
+  }
+
+  search(){
+    if(this.searchString == ""){
+      this._router.navigate(['/']);
+    }else{
+      this._router.navigate(['/search', this.searchString]); 
+    }
   }
 
 }

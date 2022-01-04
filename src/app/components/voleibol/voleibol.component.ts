@@ -31,4 +31,16 @@ export class VoleibolComponent implements OnInit {
     )
   }
 
+  ordenar(opcion: string){
+    this._productoServices.ordenarProductos(opcion,"voleibol").subscribe(
+      response =>{
+        // console.log(response.productos);
+        this.productos = response.productos;
+      },
+      error =>{
+        console.log(error)
+      }
+    )
+  }
+
 }

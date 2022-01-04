@@ -30,6 +30,7 @@ import { PedidosUsuarioComponent } from './components/componentesUsuario/pedidos
 import { AdministrarUsuarioComponent } from './components/componentesUsuario/administrar-usuario/administrar-usuario.component';
 import { DireccionesUsuarioComponent } from './components/componentesUsuario/direcciones-usuario/direcciones-usuario.component';
 import { TarjetasUsuarioComponent } from './components/componentesUsuario/tarjetas-usuario/tarjetas-usuario.component';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { TarjetasUsuarioComponent } from './components/componentesUsuario/tarjet
     PedidosUsuarioComponent,
     AdministrarUsuarioComponent,
     DireccionesUsuarioComponent,
-    TarjetasUsuarioComponent
+    TarjetasUsuarioComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

@@ -12,6 +12,7 @@ export class FutbolComponent implements OnInit {
 
   public productos!: Producto[];
   public url: string;
+  public listaMarcas!: Array<any>;
 
   constructor(
     private _productoServices: ProductosService
@@ -27,6 +28,18 @@ export class FutbolComponent implements OnInit {
       },
       error =>{
         console.log(error);
+      }
+    )
+  }
+
+  ordenar(opcion: string){
+    this._productoServices.ordenarProductos(opcion,"futbol").subscribe(
+      response =>{
+        // console.log(response.productos);
+        this.productos = response.productos;
+      },
+      error =>{
+        console.log(error)
       }
     )
   }

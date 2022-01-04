@@ -35,4 +35,16 @@ export class ProductosService {
     return this.precio;
   }
 
+  searchProducto(search: string):Observable<any>{
+    return this._http.get(this.url+"search-productos/"+search);
+  }
+
+  listaMarca(lista?: Array<any>){
+    return lista;
+  }
+
+  ordenarProductos(opcion: string, deporte: string):Observable<any>{
+    return this._http.get(this.url+"order-productos/"+opcion+"/"+deporte);
+  }
+
 }

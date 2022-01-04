@@ -20,6 +20,7 @@ import { LoginComponent } from './components/login/login.component';
 import { PreguntasComponent } from './components/preguntas/preguntas.component';
 import { ProductoComponent } from './components/producto/producto.component';
 import { RunningComponent } from './components/running/running.component';
+import { SearchComponent } from './components/search/search.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
 import { VoleibolComponent } from './components/voleibol/voleibol.component';
 
@@ -32,7 +33,8 @@ const appRoutes: Routes = [
       {path: 'futbol', component: FutbolComponent},
       {path: 'baloncesto', component: BaloncestoComponent},
       {path: 'voleibol', component: VoleibolComponent},
-      {path: 'running', component: RunningComponent}
+      {path: 'running', component: RunningComponent},
+      {path: 'search/:search', component: SearchComponent}
     ]
   },
   {path: 'home', component: HomeComponent},

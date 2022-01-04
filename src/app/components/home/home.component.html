@@ -8,13 +8,7 @@
             <a [routerLink]="['/voleibol']" id="voleibol" [routerLinkActive]="'deporteActive'">Voleibol</a>
             <a [routerLink]="['/running']" id="running" [routerLinkActive]="'deporteActive'">Running</a>
         </div>
-        <div class="main_container_izquierda_filtro">
-            <select name="filtro" id="filtro">
-                <option value="0" id="filtroNormal">Filtro</option>
-                <option value="1" id="filtroMayor">Precio : más caro primero</option>
-                <option value="2" id="filtroMenor">Precio: más barato primero</option>
-            </select>
-        </div>
+        
         <router-outlet></router-outlet>
     </div>
     <!-- CONTENEDOR DERECHO CON EL CARRITO, BUSCAR Y LAS OPCIONES DE FILTRO -->
@@ -24,10 +18,12 @@
             <p>Carrito</p>
             <p>{{precio}} €</p>
         </div>
-        <div class="main_container_derecha_buscar">
-            <span class="icon-search"></span>
-            <input type="text" name="buscar" id="buscar" placeholder="Buscar">
-        </div>
+        <!-- <div class="main_container_derecha_buscar"> -->
+            <form (ngSubmit)="search()" class="main_container_derecha_buscar">
+                <span class="icon-search"></span>
+                <input type="text" name="buscar" id="buscar" placeholder="Buscar" [(ngModel)]="searchString">
+            </form>
+        <!-- </div> -->
         <div class="main_container_derecha_opciones">
             <h3 class="subtitulo_opciones_filtro">Marca</h3>
             <div class="main_container_derecha_opciones_marca">

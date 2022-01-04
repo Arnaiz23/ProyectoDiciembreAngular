@@ -31,4 +31,16 @@ export class BaloncestoComponent implements OnInit {
     )
   }
 
+  ordenar(opcion: string){
+    this._productoServices.ordenarProductos(opcion,"baloncesto").subscribe(
+      response =>{
+        // console.log(response.productos);
+        this.productos = response.productos;
+      },
+      error =>{
+        console.log(error)
+      }
+    )
+  }
+
 }
