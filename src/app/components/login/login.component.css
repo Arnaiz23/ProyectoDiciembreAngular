@@ -47,6 +47,7 @@
     font-weight: 700;
     font-size: 18px;
     margin: 15px 0;
+    display: block;
 }
 
 .input_datos{
@@ -130,4 +131,13 @@
 .datosIncorrectosTexto{
     color:red;
     margin-top:0;
+}
+
+
+#mensajeError{
+    color: #f55;
+    font-size: 18px;
+    display: block;
+    text-align: center;
+    margin-bottom: 23px;
 }

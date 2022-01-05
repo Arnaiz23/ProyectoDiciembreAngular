@@ -11,20 +11,28 @@ export class HeaderComponent implements OnInit {
   
   public mostrar!: boolean;
   public usuario!: boolean;
+  public cerrarSesion: boolean;
 
   constructor(
     private _usuarioService: UsuarioService
   ) { 
-    this.usuario = _usuarioService.usuario;
+    this.cerrarSesion = true;
+    if(_usuarioService.getToken() != ""){
+      _usuarioService.identidad().subscribe(
+        response =>{
+          this.usuario = true;
+        },
+        err =>{
+          console.log(err.error);
+        }
+      )
+    }
   }
 
   ngOnInit(): void {
     this.mostrar = false;
   }
 
-  ngDoCheck(){
-    this.usuario = this._usuarioService.usuario;
-  }
 
   menu(){
     if(this.mostrar){
@@ -32,6 +40,10 @@ export class HeaderComponent implements OnInit {
     }else{
       this.mostrar = true;
     }
+  }
+
+  logOut(){
+    this._usuarioService.deleteToken();
   }
 
 }

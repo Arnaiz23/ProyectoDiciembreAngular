@@ -76,6 +76,10 @@ body{
             font-size: 25px;
         }
 
+        #cerrar_sesion{
+            margin-left: 15px;
+        }
+
 
 /* MENU */
     nav{

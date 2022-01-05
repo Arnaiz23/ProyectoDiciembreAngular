@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';  //MUY IMPORTANTE PARA HTTP
 import { MomentModule } from "angular2-moment"; //Pipes de fechas
 import { AngularFileUploaderModule } from 'angular-file-uploader'; //Modulo para subir imagenes
+import { CookieService } from "ngx-cookie-service";
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -68,7 +69,7 @@ import { SearchComponent } from './components/search/search.component';
     MomentModule,
     AngularFileUploaderModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

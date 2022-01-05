@@ -14,14 +14,14 @@ export class FutbolComponent implements OnInit {
   public productos!: Producto[];
   public url: string;
   public listaMarcas!: Array<any>;
-  public usuario: boolean;
+  public usuario!: boolean;
 
   constructor(
     private _productoServices: ProductosService,
     private _usuarioService: UsuarioService
   ) { 
     this.url = global.url;
-    this.usuario = _usuarioService.identidad();
+    // this.usuario = _usuarioService.identidad();
   }
 
   ngOnInit(): void {

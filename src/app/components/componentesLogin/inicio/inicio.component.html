@@ -10,6 +10,11 @@
             <input type="text" name="usuario" id="user_name" placeholder="Escribe tu nombre" class="input_datos" [(ngModel)]="newUsuario.usuario">
             <label for="password">Contraseña</label>
             <input type="password" name="password" id="password" placeholder="Escribe la contraseña" class="input_datos" [(ngModel)]="newUsuario.password">
+
+            <small id="mensajeError" *ngIf="!indentificado">
+                Usuario y/o contraseña incorrect@
+            </small>
+
             <div class="container_derecha_informacion_boton">
                 <!-- <button type="button" class="btn-login">LOGIN</button> -->
                 <input type="submit" class="btn-login" value="LOGIN">
