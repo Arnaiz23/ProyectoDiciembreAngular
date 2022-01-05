@@ -16,10 +16,14 @@ export class UsuarioService {
   cambiarIdentidad(){
     if(this.usuario){
       this.usuario = false;
-      console.log(this.usuario)
+      console.log(this.usuario);
     }else{
       this.usuario = true;
       console.log(this.usuario)
     }
+  }
+
+  identidad(){
+    return this.usuario;
   }
 }

@@ -12,11 +12,13 @@ export class VoleibolComponent implements OnInit {
 
   public productos!: Producto[];
   public url: string;
+  public usuario: boolean;
 
   constructor(
     private _productoServices: ProductosService
   ) { 
     this.url = global.url;
+    this.usuario = false;
   }
 
   ngOnInit(): void {

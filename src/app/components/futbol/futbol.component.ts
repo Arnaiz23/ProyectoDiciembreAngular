@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Producto } from 'src/app/models/producto';
 import { global } from 'src/app/service/global';
 import { ProductosService } from 'src/app/service/productos.service';
+import { UsuarioService } from 'src/app/service/usuario.service';
 
 @Component({
   selector: 'app-futbol',
@@ -13,11 +14,14 @@ export class FutbolComponent implements OnInit {
   public productos!: Producto[];
   public url: string;
   public listaMarcas!: Array<any>;
+  public usuario: boolean;
 
   constructor(
-    private _productoServices: ProductosService
+    private _productoServices: ProductosService,
+    private _usuarioService: UsuarioService
   ) { 
     this.url = global.url;
+    this.usuario = _usuarioService.identidad();
   }
 
   ngOnInit(): void {
