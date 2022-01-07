@@ -33,6 +33,8 @@ export class HeaderComponent implements OnInit {
     this.mostrar = false;
   }
 
+  // Antes de hacer lo del token, usaba el doCheck y cambiaba el "iniciar sesion" por mi cuenta al instante. Probarlo
+
 
   menu(){
     if(this.mostrar){
