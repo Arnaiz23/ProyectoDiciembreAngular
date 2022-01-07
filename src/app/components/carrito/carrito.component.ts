@@ -12,9 +12,10 @@ import { UsuarioService } from 'src/app/service/usuario.service';
 })
 export class CarritoComponent implements OnInit {
 
-  public carrito: Producto[];
+  public carrito: Array<any>;
   public usuario: boolean;
   public precio: number;
+  public url: string;
 
   constructor(
     private _productoService: ProductosService,
@@ -24,6 +25,7 @@ export class CarritoComponent implements OnInit {
     this.usuario = _usuarioService.usuario;
     this.precio = _productoService.devolverPrecio();
     this.carrito = [];
+    this.url = global.url;
   }
 
   ngOnInit(): void {
@@ -39,6 +41,10 @@ export class CarritoComponent implements OnInit {
       localStorage.removeItem("carrito");
       this._router.navigate(['/']);
     }
+  }
+
+  eliminarProducto(producto: any){
+    console.log(producto)
   }
 
 }

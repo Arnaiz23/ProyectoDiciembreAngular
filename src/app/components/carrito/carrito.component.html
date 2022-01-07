@@ -10,10 +10,11 @@
         <div *ngIf="carrito">
             <div *ngFor="let producto of carrito">
                 <div class="main_container_izquierda_articulo" >
-                    <img src="assets/images/voley.png" alt="">
+                    <img src="assets/images/voley.png" alt="{{producto.nombre}}" *ngIf="!producto">
+                    <img src="{{url+'get-image/'+producto.imagen}}" alt="{{producto.nombre}}" *ngIf="producto">
                     <h3 class="articulo_subtitulo">{{producto.nombre}}</h3>
-                    <p class="articulo_cantidad">Cantidad:1</p>
-                    <span class="icon-bin"></span>
+                    <p class="articulo_cantidad">Cantidad: {{producto.cantidad}}</p>
+                    <span class="icon-bin" (click)="eliminarProducto(producto)"></span>
                 </div>
                 <div class="linea"></div>
             </div>
@@ -48,7 +49,7 @@
         <h2 class="main_container_derecha_titulo"><span class="icon-cart"></span>Carrito</h2>
         <div class="main_container_derecha_carrito">
             <p>Carrito</p>
-            <p>{{precio}} €</p>
+            <p>{{precio | number: '1.0-2'}} €</p>
         </div>
     </div>
 </div>

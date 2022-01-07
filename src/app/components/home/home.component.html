@@ -16,7 +16,7 @@
         <h2 class="main_container_derecha_titulo"><span class="icon-cart"></span>Carrito</h2>
         <div class="main_container_derecha_carrito">
             <p>Carrito</p>
-            <p>{{precio}} €</p>
+            <p>{{precio | number: '1.0-2'}} €</p>
         </div>
         <!-- <div class="main_container_derecha_buscar"> -->
             <form (ngSubmit)="search()" class="main_container_derecha_buscar">

@@ -11,7 +11,7 @@ export class ProductosService {
 
   public url: string;
   public precio!: number;
-  public carrito: Producto[];
+  public carrito: Array<any>;
 
   constructor(
     private _http: HttpClient
@@ -47,12 +47,13 @@ export class ProductosService {
   devolverPrecio() {
     let precio = 0;
     let carrito = this.devolverCarrito();
-    if(!carrito || carrito.length == 0){
+    if (!carrito || carrito.length == 0) {
       precio = 0;
-    }else{
+    } else {
       carrito.forEach(producto => {
-        // precio += parseFloat(producto.precio) * parseInt(producto.cantidad);
-        precio += producto.precio;
+        // console.log(producto)
+        precio += producto.precio * parseInt(producto.cantidad);
+        // precio += producto.precio;
       });
     }
     return precio;
@@ -70,19 +71,34 @@ export class ProductosService {
     return this._http.get(this.url + "order-productos/" + opcion + "/" + deporte);
   }
 
-  addCarrito(opcion: string, producto?: Producto) {
+  addCarrito(opcion: string, producto?: any, cantidad?: number) {
     if (opcion != "add") {
       this.carrito = [];
     } else {
       if (producto) {
-        this.carrito.push(producto);
-        localStorage.setItem("carrito", JSON.stringify(this.carrito));
+        let newproducto = {
+          imagen: producto.imagen,
+          nombre: producto.nombre,
+          cantidad: cantidad,
+          precio: producto.precio
+        }
+        let coincidencia = this.carrito.find(productos => {
+          return productos.nombre == producto.nombre;
+        });
+        if(coincidencia){
+          // coincidencia.cantidad++;
+          coincidencia.cantidad += cantidad;
+          localStorage.setItem("carrito", JSON.stringify(this.carrito));
+        }else{
+          this.carrito.push(newproducto);
+          localStorage.setItem("carrito", JSON.stringify(this.carrito));
+        }
       }
     }
   }
 
   devolverCarrito() {
-    if(localStorage.getItem("carrito") == null){
+    if (localStorage.getItem("carrito") == null) {
       this.carrito = [];
     }
     return this.carrito;

@@ -44,9 +44,24 @@ export class FutbolComponent implements OnInit {
     )
   }
 
-  addProducto(producto: Producto){
+  addProducto(producto: Producto, event: any){
     // console.log(producto);
-    this._productoServices.addCarrito("add",producto);
+    // let cantidad = event.target.parentElement.previousElementSibling.children[1].value;
+    let cantidad = (<HTMLInputElement>document.getElementById("cantidad"+producto._id));
+    // Mirar donde pulsa, si pulsas en el div, es undefined
+    this._productoServices.addCarrito("add",producto, parseInt(cantidad.value));
+  }
+
+  addCantidad(event: any){
+    event.target.nextElementSibling.value++;
+  }
+
+  removeCantidad(event: any){
+    if(event.target.previousElementSibling.value <= 1){
+      event.target.previousElementSibling.value = 1;
+    }else{
+      event.target.previousElementSibling.value--;
+    }
   }
 
 }

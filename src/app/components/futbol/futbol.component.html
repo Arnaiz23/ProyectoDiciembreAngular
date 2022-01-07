@@ -18,11 +18,11 @@
             </div>
             <div class="card_informacion_carrito">
                 <div class="card_informacion_carrito_cantidad">
-                    <button type="button" class="add">+</button>
-                    <input type="text" name="cantidad" class="cantidadTarjeta" value="0">
-                    <button type="button" class="remove">-</button>
+                    <button type="button" class="add" (click)="addCantidad($event)">+</button>
+                    <input type="text" name="cantidad" class="cantidadTarjeta" value="1" id="cantidad{{producto._id}}">
+                    <button type="button" class="remove" (click)="removeCantidad($event)">-</button>
                 </div>
-                <div class="card_informacion_add" (click)="addProducto(producto)">
+                <div class="card_informacion_add" (click)="addProducto(producto,$event)">
                     <p>Añadir</p>
                 </div>
             </div>
