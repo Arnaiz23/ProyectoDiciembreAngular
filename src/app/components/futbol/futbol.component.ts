@@ -21,7 +21,16 @@ export class FutbolComponent implements OnInit {
     private _usuarioService: UsuarioService
   ) { 
     this.url = global.url;
-    // this.usuario = _usuarioService.identidad();
+    if(_usuarioService.getToken() != ""){
+      _usuarioService.identidad().subscribe(
+        response =>{
+          this.usuario = true;
+        },
+        err =>{
+          console.log(err.error);
+        }
+      )
+    }
   }
 
   ngOnInit(): void {

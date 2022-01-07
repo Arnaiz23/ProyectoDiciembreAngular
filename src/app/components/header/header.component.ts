@@ -44,6 +44,7 @@ export class HeaderComponent implements OnInit {
 
   logOut(){
     this._usuarioService.deleteToken();
+    alert("Has cerrado sesion");
   }
 
 }
