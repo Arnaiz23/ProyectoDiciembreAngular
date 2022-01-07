@@ -43,4 +43,8 @@ export class VoleibolComponent implements OnInit {
     )
   }
 
+  addProducto(event: any){
+    console.log(event);
+  }
+
 }

@@ -43,4 +43,8 @@ export class RunningComponent implements OnInit {
     )
   }
 
+  addProducto(event: any){
+    console.log(event);
+  }
+
 }

@@ -7,7 +7,7 @@ export class Producto{
         public tipo: string,
         public descripcionCorta: string,
         public descripcion: string,
-        public precio: string,
+        public precio: number,
         public deporte: string,
         public disponibilidad: string,
         public date: any

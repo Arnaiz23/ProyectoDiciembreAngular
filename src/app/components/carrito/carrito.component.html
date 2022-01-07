@@ -8,13 +8,23 @@
         </div>
 
         <div *ngIf="carrito">
-            <div class="main_container_izquierda_articulo">
+            <div *ngFor="let producto of carrito">
+                <div class="main_container_izquierda_articulo" >
+                    <img src="assets/images/voley.png" alt="">
+                    <h3 class="articulo_subtitulo">{{producto.nombre}}</h3>
+                    <p class="articulo_cantidad">Cantidad:1</p>
+                    <span class="icon-bin"></span>
+                </div>
+                <div class="linea"></div>
+            </div>
+            <!-- <div class="main_container_izquierda_articulo" >
                 <img src="assets/images/voley.png" alt="">
-                <h3 class="articulo_subtitulo">Nombre</h3>
+                <h3 class="articulo_subtitulo">nombre</h3>
                 <p class="articulo_cantidad">Cantidad:1</p>
                 <span class="icon-bin"></span>
             </div>
-            <div class="linea"></div>
+            <div class="linea"></div> -->
+            <!-- <div class="linea"></div>
             <div class="main_container_izquierda_articulo">
                 <img src="assets/images/voley.png" alt="">
                 <h3 class="articulo_subtitulo">Nombre</h3>
@@ -27,9 +37,9 @@
                 <h3 class="articulo_subtitulo">Nombre</h3>
                 <p class="articulo_cantidad">Cantidad: 1</p>
                 <span class="icon-bin"></span>
-            </div>
+            </div> -->
         </div>
-        <div class="main_container_izquierda_comprar">
+        <div class="main_container_izquierda_comprar" (click)="finalizarCompra(carrito)">
             <p>Realizar pedido</p>
         </div>
     </div>

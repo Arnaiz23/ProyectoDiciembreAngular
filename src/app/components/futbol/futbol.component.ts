@@ -44,4 +44,9 @@ export class FutbolComponent implements OnInit {
     )
   }
 
+  addProducto(producto: Producto){
+    // console.log(producto);
+    this._productoServices.addCarrito("add",producto);
+  }
+
 }

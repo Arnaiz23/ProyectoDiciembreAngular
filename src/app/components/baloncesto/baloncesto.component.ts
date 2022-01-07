@@ -42,5 +42,9 @@ export class BaloncestoComponent implements OnInit {
       }
     )
   }
+  
+  addProducto(event: any){
+    console.log(event);
+  }
 
 }
