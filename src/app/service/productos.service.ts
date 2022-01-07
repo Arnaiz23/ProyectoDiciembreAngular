@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { global } from './global';
+import { Producto } from '../models/producto';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ export class ProductosService {
 
   public url: string;
   public precio!: number;
+  public carrito!: Producto[];
 
   constructor(
     private _http: HttpClient
@@ -45,6 +47,16 @@ export class ProductosService {
 
   ordenarProductos(opcion: string, deporte: string):Observable<any>{
     return this._http.get(this.url+"order-productos/"+opcion+"/"+deporte);
+  }
+
+  addCarrito(opcion: string, producto?: Producto){
+    if(opcion != "add"){
+      this.carrito = [];
+    }else{
+      if(producto){
+        this.carrito.push(producto);
+      }
+    }
   }
 
 }
