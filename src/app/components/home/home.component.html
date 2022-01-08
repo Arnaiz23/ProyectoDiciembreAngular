@@ -14,9 +14,12 @@
     <!-- CONTENEDOR DERECHO CON EL CARRITO, BUSCAR Y LAS OPCIONES DE FILTRO -->
     <div class="main_container_derecha">
         <h2 class="main_container_derecha_titulo"><span class="icon-cart"></span>Carrito</h2>
-        <div class="main_container_derecha_carrito">
+        <div class="main_container_derecha_carrito" *ngIf="usuario">
             <p>Carrito</p>
             <p>{{precio | number: '1.0-2'}} €</p>
+        </div>
+        <div class="main_container_derecha_carrito" *ngIf="!usuario">
+            <p>Inicia sesión para acceder</p>
         </div>
         <!-- <div class="main_container_derecha_buscar"> -->
             <form (ngSubmit)="search()" class="main_container_derecha_buscar">

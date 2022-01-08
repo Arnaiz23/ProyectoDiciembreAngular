@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Producto } from 'src/app/models/producto';
 import { ProductosService } from 'src/app/service/productos.service';
 import { global } from 'src/app/service/global';
+import { UsuarioService } from 'src/app/service/usuario.service';
 
 @Component({
   selector: 'app-voleibol',
@@ -12,13 +13,23 @@ export class VoleibolComponent implements OnInit {
 
   public productos!: Producto[];
   public url: string;
-  public usuario: boolean;
+  public usuario!: boolean;
 
   constructor(
-    private _productoServices: ProductosService
+    private _productoServices: ProductosService,
+    private _usuarioService: UsuarioService
   ) { 
     this.url = global.url;
-    this.usuario = false;
+    if(_usuarioService.getToken() != ""){
+      _usuarioService.identidad().subscribe(
+        response =>{
+          this.usuario = true;
+        },
+        err =>{
+          console.log(err.error);
+        }
+      )
+    }
   }
 
   ngOnInit(): void {

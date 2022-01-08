@@ -13,7 +13,7 @@ import { UsuarioService } from 'src/app/service/usuario.service';
 export class CarritoComponent implements OnInit {
 
   public carrito: Array<any>;
-  public usuario: boolean;
+  public usuario!: boolean;
   public precio: number;
   public url: string;
 
@@ -22,7 +22,17 @@ export class CarritoComponent implements OnInit {
     private _usuarioService: UsuarioService,
     private _router: Router
   ) { 
-    this.usuario = _usuarioService.usuario;
+    // this.usuario = _usuarioService.usuario;
+    if(_usuarioService.getToken() != ""){
+      _usuarioService.identidad().subscribe(
+        response =>{
+          this.usuario = true;
+        },
+        err =>{
+          console.log(err.error);
+        }
+      )
+    }
     this.precio = _productoService.devolverPrecio();
     this.carrito = [];
     this.url = global.url;
@@ -32,6 +42,7 @@ export class CarritoComponent implements OnInit {
     /* let producto =  new Producto("","","comida","","","","","","","",null);
     this._productoService.addCarrito("add", producto); */
     this.carrito = this._productoService.devolverCarrito();
+    
   }
 
   ngDoCheck(){

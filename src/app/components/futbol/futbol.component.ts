@@ -45,6 +45,14 @@ export class FutbolComponent implements OnInit {
     )
   }
 
+  ngDoCheck(){
+    if(this._usuarioService.getToken() != ""){
+      this.usuario = true;
+    }else{
+      this.usuario = false;
+    }
+  }
+
   ordenar(opcion: string){
     this._productoServices.ordenarProductos(opcion,"futbol").subscribe(
       response =>{
