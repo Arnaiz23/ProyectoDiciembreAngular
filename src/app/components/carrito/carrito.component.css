@@ -202,3 +202,7 @@
 .main_container{
     min-height: 567px;
 }
+
+.btn-allowed{
+    cursor: not-allowed !important;
+}

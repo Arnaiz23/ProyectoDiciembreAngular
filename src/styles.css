@@ -118,7 +118,7 @@ body{
 
 /* MAIN */
 main{
-    background-color:  var(--negro-main) ;
+    background-color:  var(--negro-main);
 }
 .main_container{
     /* border: 1px solid #000; */

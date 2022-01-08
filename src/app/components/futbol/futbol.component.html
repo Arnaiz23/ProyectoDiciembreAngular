@@ -7,10 +7,8 @@
 </div>
 <div class="main_container_izquierda_tarjetas">
     <div class="card" *ngFor="let producto of productos">
-        <img src="assets/images/voley.png" alt="" class="card_imagenes" *ngIf="!producto.imagen"
-            [routerLink]="['/producto', producto._id]">
-        <img src="{{url+'get-image/'+producto.imagen}}" alt="" class="card_imagenes" *ngIf="producto.imagen"
-            [routerLink]="['/producto', producto._id]">
+        <img src="assets/images/voley.png" alt="" class="card_imagenes" *ngIf="!producto.imagen" [routerLink]="['/producto', producto._id]">
+        <img src="{{url+'get-image/'+producto.imagen}}" alt="" class="card_imagenes" *ngIf="producto.imagen" [routerLink]="['/producto', producto._id]">
         <div class="card_informacion">
             <h3 class="card_informacion_titulo">{{producto.nombre}}</h3>
             <p class="card_informacion_texto">{{producto.descripcionCorta}}</p>
@@ -20,11 +18,11 @@
             </div>
             <div class="card_informacion_carrito" *ngIf="usuario">
                 <div class="card_informacion_carrito_cantidad">
-                    <button type="button" class="add">+</button>
-                    <input type="text" name="cantidad" class="cantidadTarjeta" value="0">
-                    <button type="button" class="remove">-</button>
+                    <button type="button" class="add" (click)="addCantidad($event)">+</button>
+                    <input type="text" name="cantidad" class="cantidadTarjeta" value="1" id="cantidad{{producto._id}}">
+                    <button type="button" class="remove" (click)="removeCantidad($event)">-</button>
                 </div>
-                <div class="card_informacion_add">
+                <div class="card_informacion_add" (click)="addProducto(producto,$event)">
                     <p>Añadir</p>
                 </div>
             </div>

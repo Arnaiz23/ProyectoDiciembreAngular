@@ -1,0 +1,65 @@
+<app-slider [size]="'small'"></app-slider>
+<div id="main-container">
+    <div id="main">
+        <form id="form-pago" #formPago="ngForm" (ngSubmit)="finalizarCompra()">
+            <div>
+                <div id="form-pago-izq">
+                    <h3 class="subheader">Dirección de envío</h3>
+                    <label for="calle">Calle</label>
+                    <input type="text" name="calle" id="calle" #calle="ngModel" [(ngModel)]="data.calle" required>
+
+                    <small *ngIf="!calle.value && calle.touched" class="data_error">
+                        Calle no valida
+                    </small>
+
+                    <label for="codigoPostal">Código Postal</label>
+                    <input type="number" name="codigoPostal" id="codigoPostal" #codigoPostal="ngModel" [(ngModel)]="data.codigoPostal" required>
+
+                    <small *ngIf="!codigoPostal.value && codigoPostal.touched" class="data_error">
+                        Código Postal no valida
+                    </small>
+
+                    <label for="localidad">Localidad</label>
+                    <input type="text" name="localidad" id="localidad" #localidad="ngModel" [(ngModel)]="data.localidad" required>
+
+                    <small *ngIf="!localidad.value && localidad.touched" class="data_error">
+                        Localidad no valida
+                    </small>
+
+                </div>
+                <div id="form-pago-der">
+                    <h3 class="subheader">Método de pago</h3>
+                    <label for="nombreTarjeta">Nombre del titular</label>
+                    <input type="text" name="nombreTarjeta" id="nombreTarjeta" #nombreTitular="ngModel" [(ngModel)]="data.nombreTitular" required>
+
+                    <small *ngIf="!nombreTitular.value && nombreTitular.touched" class="data_error">
+                        Nombre no válido
+                    </small>
+
+                    <label for="numeroTarjeta">Número de la tarjeta</label>
+                    <input type="number" name="numeroTarjeta" id="numeroTarjeta" #numeroTarjeta="ngModel" [(ngModel)]="data.numeroTarjeta" required>
+
+                    <small *ngIf="!numeroTarjeta.value && numeroTarjeta.touched" class="data_error">
+                        Numero no válido
+                    </small>
+
+                    <label for="fecha">Fecha de expiración</label>
+                    <input type="date" name="fecha" id="fecha" #fecha="ngModel" [(ngModel)]="data.fecha" required>
+                    
+                    <small *ngIf="!fecha.value && fecha.touched" class="data_error">
+                        Fecha no valida
+                    </small>
+
+                    <label for="cvc">CVC</label>
+                    <input type="number" name="cvc" id="cvc" #cvc="ngModel" [(ngModel)]="data.cvc" required>
+
+                    <small *ngIf="!cvc.value && cvc.touched" class="data_error">
+                        CVC no válido
+                    </small>
+
+                </div>
+            </div>
+            <input type="submit" value="Pagar y finalizar" class="btn-compra" [disabled]="formPago.invalid">
+        </form>
+    </div>
+</div>

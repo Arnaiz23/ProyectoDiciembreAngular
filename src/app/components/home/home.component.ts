@@ -17,10 +17,16 @@ export class HomeComponent implements OnInit {
     private _productoService: ProductosService,
     private _router: Router
   ) { 
-    this.precio = _productoService.cambiarPrecio(20);
+    // this.precio = _productoService.cambiarPrecio(20);
+    this.precio = _productoService.devolverPrecio();
   }
 
   ngOnInit(): void {
+    this.precio = this._productoService.devolverPrecio();
+  }
+
+  ngDoCheck(){
+    this.precio = this._productoService.devolverPrecio();
   }
 
   search(){
