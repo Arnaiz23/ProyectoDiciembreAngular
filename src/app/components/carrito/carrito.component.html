@@ -40,8 +40,12 @@
                 <span class="icon-bin"></span>
             </div> -->
         </div>
-        <div class="main_container_izquierda_comprar" (click)="finalizarCompra(carrito)">
-            <p>Realizar pedido</p>
+        <!-- <div class="main_container_izquierda_comprar" (click)="finalizarCompra(carrito)"> -->
+        <div class="main_container_izquierda_comprar" [routerLink]="['/form-compra']" *ngIf="carrito.length != 0">
+            <p [ngClass]="{'btn-allowed': carrito.length == 0}">Realizar pedido</p>
+        </div>
+        <div class="main_container_izquierda_comprar" *ngIf="carrito.length == 0">
+            <p [ngClass]="{'btn-allowed': carrito.length == 0}">Realizar pedido</p>
         </div>
     </div>
     <!-- CONTENEDOR DERECHO CON EL CARRITO -->

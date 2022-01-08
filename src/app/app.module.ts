@@ -31,6 +31,7 @@ import { AdministrarUsuarioComponent } from './components/componentesUsuario/adm
 import { DireccionesUsuarioComponent } from './components/componentesUsuario/direcciones-usuario/direcciones-usuario.component';
 import { TarjetasUsuarioComponent } from './components/componentesUsuario/tarjetas-usuario/tarjetas-usuario.component';
 import { SearchComponent } from './components/search/search.component';
+import { FormCompraComponent } from './components/form-compra/form-compra.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { SearchComponent } from './components/search/search.component';
     AdministrarUsuarioComponent,
     DireccionesUsuarioComponent,
     TarjetasUsuarioComponent,
-    SearchComponent
+    SearchComponent,
+    FormCompraComponent
   ],
   imports: [
     BrowserModule,

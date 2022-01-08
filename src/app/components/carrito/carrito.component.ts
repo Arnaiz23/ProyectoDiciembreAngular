@@ -34,17 +34,26 @@ export class CarritoComponent implements OnInit {
     this.carrito = this._productoService.devolverCarrito();
   }
 
-  finalizarCompra(carrito: Producto[]){
+  ngDoCheck(){
+    this.precio = this._productoService.devolverPrecio();
+  }
+
+  /* finalizarCompra(carrito: Producto[]){
     if(carrito.length != 0){
+      // Formulario de compra
+
       console.log(carrito);
       // Una vez realizada compra del todo, eliminar carrito
       localStorage.removeItem("carrito");
       this._router.navigate(['/']);
     }
-  }
+  } */
 
   eliminarProducto(producto: any){
-    console.log(producto)
+    // console.log(producto);
+    let index = this.carrito.indexOf(producto);
+    this.carrito.splice(index,1);
+    localStorage.setItem("carrito", JSON.stringify(this.carrito));
   }
 
 }

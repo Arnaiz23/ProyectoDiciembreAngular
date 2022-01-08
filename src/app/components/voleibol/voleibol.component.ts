@@ -47,7 +47,6 @@ export class VoleibolComponent implements OnInit {
     // console.log(producto);
     // let cantidad = event.target.parentElement.previousElementSibling.children[1].value;
     let cantidad = (<HTMLInputElement>document.getElementById("cantidad"+producto._id));
-    // Mirar donde pulsa, si pulsas en el div, es undefined
     this._productoServices.addCarrito("add",producto, parseInt(cantidad.value));
   }
 

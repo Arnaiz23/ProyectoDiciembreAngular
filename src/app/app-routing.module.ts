@@ -14,6 +14,7 @@ import { ProductosComponent } from './components/componentsAdmin/productos/produ
 
 
 import { ErrorComponent } from "./components/error/error.component";
+import { FormCompraComponent } from './components/form-compra/form-compra.component';
 import { FutbolComponent } from './components/futbol/futbol.component';
 import { HomeComponent } from "./components/home/home.component";
 import { LoginComponent } from './components/login/login.component';
@@ -40,6 +41,7 @@ const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'preguntas', component: PreguntasComponent},
   {path: 'carrito', component: CarritoComponent},
+  {path: 'form-compra', component: FormCompraComponent},
   {path: 'producto/:id', component: ProductoComponent},
   {path: 'admin', component: AdminComponent,
     children: [
