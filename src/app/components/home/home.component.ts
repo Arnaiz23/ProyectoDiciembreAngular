@@ -40,7 +40,7 @@ export class HomeComponent implements OnInit {
 
   ngDoCheck(){
     this.precio = this._productoService.devolverPrecio();
-    if(this._usuarioService.getToken() != ""){
+    if(this._usuarioService.getToken() != "" && this._usuarioService.usuario){
         this.usuario = true;
     }else{
       this.usuario = false;

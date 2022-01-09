@@ -35,7 +35,7 @@ export class HeaderComponent implements OnInit {
 
   // Antes de hacer lo del token, usaba el doCheck y cambiaba el "iniciar sesion" por mi cuenta al instante. Probarlo
   ngDoCheck(){
-    if(this._usuarioService.getToken() != ""){
+    if(this._usuarioService.getToken() != "" && this._usuarioService.usuario){
       this.usuario = true;
     }else{
       this.usuario = false;
