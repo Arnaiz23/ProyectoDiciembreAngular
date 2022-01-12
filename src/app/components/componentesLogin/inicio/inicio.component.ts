@@ -33,8 +33,20 @@ export class InicioComponent implements OnInit {
       response =>{
         // console.log(response.token);
         this._usuarioService.setToken(response.token);
-        this._usuarioService.cambiarIdentidad();
-        this._router.navigate(['/']);
+        this._usuarioService.isAdmin(response.token).subscribe(
+          response =>{
+            this._usuarioService.cambiarIdentidad("admin");
+            this._router.navigate(['/']);
+          },
+          error =>{
+            if(error.status == "403"){
+              this._usuarioService.cambiarIdentidad("usuario");
+              this._router.navigate(['/']);
+            }
+          }
+        )
+        // this._usuarioService.cambiarIdentidad();
+        // this._router.navigate(['/']);
       },
       error =>{
         // console.log(error)

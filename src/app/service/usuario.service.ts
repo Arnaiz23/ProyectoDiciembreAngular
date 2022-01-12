@@ -10,7 +10,7 @@ import { CookieService } from "ngx-cookie-service";
 })
 export class UsuarioService {
 
-  public usuario!: boolean;
+  public usuario!: string|boolean;
   public url: string;
 
   constructor(
@@ -21,11 +21,11 @@ export class UsuarioService {
     this.url = global.url;
   }
 
-  cambiarIdentidad(){
-    if(this.usuario){
-      this.usuario = false;
+  cambiarIdentidad(rol?: string){
+    if(!this.usuario && rol){
+      this.usuario = rol;
     }else{
-      this.usuario = true;
+      this.usuario = false;
     }
   }
 
@@ -58,5 +58,10 @@ export class UsuarioService {
   }
   deleteToken(){
     this._cookies.delete("token");
+  }
+
+  isAdmin(token: string):Observable<any>{
+    var body = {token: token};
+    return this._http.post(this.url+"admin-user", body);
   }
 }

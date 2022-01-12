@@ -10,8 +10,11 @@
             <div class="header_nav_opciones_inicio" *ngIf="!currentUser">
                 <a [routerLink]="['/login']" id="iniciar_sesion"><span class="icon-airplane"></span>INICIAR SESION</a>
             </div>
-            <div class="header_nav_opciones_inicio" *ngIf="currentUser">
+            <div class="header_nav_opciones_inicio" *ngIf="currentUser == 'usuario'">
                 <a [routerLink]="['/usuario']"><span class="icon-user"></span>CUENTA</a>
+            </div>
+            <div class="header_nav_opciones_inicio" *ngIf="currentUser == 'admin'">
+                <a [routerLink]="['/admin']" id="administrar_sesion"><span class="icon-cog"></span>ADMIN</a>
             </div>
             <div class="header_nav_opciones_inicio" *ngIf="currentUser">
                 <a (click)="logOut()" [routerLink]="['/']" id="cerrar_sesion"><span class="icon-user"></span>CERRAR SESION</a>
