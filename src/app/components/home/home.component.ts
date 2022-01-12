@@ -11,6 +11,10 @@ import { UsuarioService } from 'src/app/service/usuario.service';
 })
 export class HomeComponent implements OnInit {
 
+  public get currentUser() {
+    return this._usuarioService.usuario;
+  }
+
   public precio: number;
   public searchString!: string;
   public usuario!: boolean;
@@ -22,29 +26,10 @@ export class HomeComponent implements OnInit {
   ) { 
     // this.precio = _productoService.cambiarPrecio(20);
     this.precio = _productoService.devolverPrecio();
-    if(_usuarioService.getToken() != ""){
-      _usuarioService.identidad().subscribe(
-        response =>{
-          this.usuario = true;
-        },
-        err =>{
-          console.log(err.error);
-        }
-      )
-    }
   }
 
   ngOnInit(): void {
     this.precio = this._productoService.devolverPrecio();
-  }
-
-  ngDoCheck(){
-    this.precio = this._productoService.devolverPrecio();
-    if(this._usuarioService.getToken() != "" && this._usuarioService.usuario){
-        this.usuario = true;
-    }else{
-      this.usuario = false;
-    }
   }
 
   search(){

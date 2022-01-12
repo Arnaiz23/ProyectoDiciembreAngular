@@ -16,7 +16,7 @@
                 <h3>Precio</h3>
                 <p>{{producto.precio}} €</p>
             </div>
-            <div class="card_informacion_carrito" *ngIf="usuario">
+            <div class="card_informacion_carrito" *ngIf="currentUser">
                 <div class="card_informacion_carrito_cantidad">
                     <button type="button" class="add" (click)="addCantidad($event)">+</button>
                     <input type="text" name="cantidad" class="cantidadTarjeta" value="1" id="cantidad{{producto._id}}">

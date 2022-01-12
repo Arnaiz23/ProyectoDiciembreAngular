@@ -7,13 +7,13 @@
         </div>
         <div class="header_nav_opciones">
             <!-- BOTON INICIO SESION -->
-            <div class="header_nav_opciones_inicio" *ngIf="!usuario">
+            <div class="header_nav_opciones_inicio" *ngIf="!currentUser">
                 <a [routerLink]="['/login']" id="iniciar_sesion"><span class="icon-airplane"></span>INICIAR SESION</a>
             </div>
-            <div class="header_nav_opciones_inicio" *ngIf="usuario">
+            <div class="header_nav_opciones_inicio" *ngIf="currentUser">
                 <a [routerLink]="['/usuario']"><span class="icon-user"></span>CUENTA</a>
             </div>
-            <div class="header_nav_opciones_inicio" *ngIf="cerrarSesion && usuario">
+            <div class="header_nav_opciones_inicio" *ngIf="currentUser">
                 <a (click)="logOut()" [routerLink]="['/']" id="cerrar_sesion"><span class="icon-user"></span>CERRAR SESION</a>
             </div>
             <!-- BOTON MENU -->

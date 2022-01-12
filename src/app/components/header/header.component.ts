@@ -8,6 +8,10 @@ import { UsuarioService } from 'src/app/service/usuario.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+
+  public get currentUser() {
+    return this._usuarioService.usuario;
+  }
   
   public mostrar!: boolean;
   public usuario!: boolean;
@@ -33,15 +37,6 @@ export class HeaderComponent implements OnInit {
     this.mostrar = false;
   }
 
-  // Antes de hacer lo del token, usaba el doCheck y cambiaba el "iniciar sesion" por mi cuenta al instante. Probarlo
-  ngDoCheck(){
-    if(this._usuarioService.getToken() != "" && this._usuarioService.usuario){
-      this.usuario = true;
-    }else{
-      this.usuario = false;
-    }
-  }
-
 
   menu(){
     if(this.mostrar){
@@ -53,6 +48,7 @@ export class HeaderComponent implements OnInit {
 
   logOut(){
     this._usuarioService.deleteToken();
+    this._usuarioService.cambiarIdentidad();
     alert("Has cerrado sesion");
   }
 

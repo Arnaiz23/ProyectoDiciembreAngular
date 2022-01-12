@@ -11,6 +11,8 @@ import { UsuarioService } from 'src/app/service/usuario.service';
 })
 export class BaloncestoComponent implements OnInit {
 
+  public currentUser!: any;
+
   public productos!: Producto[];
   public url: string;
   public usuario!: boolean;

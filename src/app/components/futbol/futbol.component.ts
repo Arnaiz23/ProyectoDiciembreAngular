@@ -11,6 +11,10 @@ import { UsuarioService } from 'src/app/service/usuario.service';
 })
 export class FutbolComponent implements OnInit {
 
+  public get currentUser() {
+    return this._usuarioService.usuario;
+  }
+
   public productos!: Producto[];
   public url: string;
   public listaMarcas!: Array<any>;
@@ -21,16 +25,6 @@ export class FutbolComponent implements OnInit {
     private _usuarioService: UsuarioService
   ) { 
     this.url = global.url;
-    if(_usuarioService.getToken() != ""){
-      _usuarioService.identidad().subscribe(
-        response =>{
-          this.usuario = true;
-        },
-        err =>{
-          console.log(err.error);
-        }
-      )
-    }
   }
 
   ngOnInit(): void {
@@ -43,14 +37,6 @@ export class FutbolComponent implements OnInit {
         console.log(error);
       }
     )
-  }
-
-  ngDoCheck(){
-    if(this._usuarioService.getToken() != "" && this._usuarioService.usuario){
-      this.usuario = true;
-    }else{
-      this.usuario = false;
-    }
   }
 
   ordenar(opcion: string){
