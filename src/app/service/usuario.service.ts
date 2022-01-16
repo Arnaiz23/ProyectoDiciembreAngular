@@ -32,7 +32,7 @@ export class UsuarioService {
         )
       },
       error =>{
-        console.error(error)
+        this.usuario = false;
       }
     )
   }
@@ -80,4 +80,8 @@ export class UsuarioService {
     var body = {token: token};
     return this._http.post(this.url+"admin-user", body);
   }
+
+  /* registerUser(body: any):Observable<any>{
+    return this._http.post(this.url+"new-usuario", body);
+  } */
 }

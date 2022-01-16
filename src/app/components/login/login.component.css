@@ -134,7 +134,7 @@
 }
 
 
-#mensajeError{
+.mensajeError{
     color: #f55;
     font-size: 18px;
     display: block;

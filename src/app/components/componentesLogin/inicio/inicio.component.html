@@ -11,7 +11,7 @@
             <label for="password">Contraseña</label>
             <input type="password" name="password" id="password" placeholder="Escribe la contraseña" class="input_datos" [(ngModel)]="newUsuario.password">
 
-            <small id="mensajeError" *ngIf="!indentificado">
+            <small class="mensajeError" *ngIf="!indentificado">
                 Usuario y/o contraseña incorrect@
             </small>
 
