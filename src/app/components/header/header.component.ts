@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
     private _usuarioService: UsuarioService
   ) { 
     this.cerrarSesion = true;
-    if(_usuarioService.getToken() != ""){
+    /* if(_usuarioService.getToken() != ""){
       _usuarioService.identidad().subscribe(
         response =>{
           this.usuario = true;
@@ -30,7 +30,8 @@ export class HeaderComponent implements OnInit {
           console.log(err.error);
         }
       )
-    }
+    } */
+    console.log(this.currentUser);
   }
 
   ngOnInit(): void {

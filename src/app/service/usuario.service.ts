@@ -19,6 +19,22 @@ export class UsuarioService {
   ) { 
     // this.usuario = false;
     this.url = global.url;
+    this.identidad().subscribe(
+      response => {
+        let usuario = response.usuario;
+        this.isAdmin(this.getToken()).subscribe(
+          response =>{
+            this.usuario = "admin";
+          },
+          error =>{
+            this.usuario = "usuario";
+          }
+        )
+      },
+      error =>{
+        console.error(error)
+      }
+    )
   }
 
   cambiarIdentidad(rol?: string){
