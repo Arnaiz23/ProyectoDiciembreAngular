@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Usuario } from 'src/app/models/usuario';
 import { UsuarioService } from 'src/app/service/usuario.service';
 
@@ -9,11 +10,18 @@ import { UsuarioService } from 'src/app/service/usuario.service';
 })
 export class AdministrarUsuarioComponent implements OnInit {
 
+  public get currentUser() {
+    return this._usuarioService.usuario;
+  }
+
   public usuario!: Usuario;
 
   constructor(
-    private _usuarioService: UsuarioService
-  ) { }
+    private _usuarioService: UsuarioService,
+    private _router: Router
+  ) { 
+    if(this.currentUser == undefined) _router.navigate(["/"]);
+  }
 
   ngOnInit(): void {
     this.identidad();
