@@ -12,6 +12,10 @@ import { UsuarioService } from 'src/app/service/usuario.service';
 })
 export class CarritoComponent implements OnInit {
 
+  public get currentUser() {
+    return this._usuarioService.usuario;
+  }
+
   public carrito: Array<any>;
   public usuario!: boolean;
   public precio: number;

@@ -32,6 +32,10 @@ export class HomeComponent implements OnInit {
     this.precio = this._productoService.devolverPrecio();
   }
 
+  ngDoCheck(){
+    this.precio = this._productoService.devolverPrecio();
+  }
+
   search(){
     if(this.searchString == ""){
       this._router.navigate(['/']);

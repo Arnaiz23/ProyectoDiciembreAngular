@@ -11,7 +11,9 @@ import { UsuarioService } from 'src/app/service/usuario.service';
 })
 export class VoleibolComponent implements OnInit {
 
-  public currentUser!: any;
+  public get currentUser() {
+    return this._usuarioService.usuario;
+  }
 
   public productos!: Producto[];
   public url: string;
