@@ -30,13 +30,17 @@ export class AdministrarUsuarioComponent implements OnInit {
   identidad(){
     this._usuarioService.identidad().subscribe(
       response =>{
-        // console.log(response.usuario)
+        // console.log(response.usuario[0])
         this.usuario = response.usuario[0];
       },
       err =>{
         console.log(err.error)
       }
     )
+  }
+
+  actualizarCuenta(){
+    
   }
 
 }

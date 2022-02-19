@@ -51,8 +51,12 @@ export class UsuarioService {
     var body = {
       token: this.getToken()
     };
+
+    // console.log(body);
     // var body = JSON.stringify(this.getToken());
-    return this._http.post(this.url+"getUsuario",body);
+    var body2 = JSON.stringify(body);
+    var headers = new HttpHeaders().set("Content-type", "application/json");
+    return this._http.post(this.url+"getUsuario",body2,{headers:headers});
   }
 
   comprobarUsuario(newUsuario: any):Observable<any>{
@@ -81,7 +85,9 @@ export class UsuarioService {
     return this._http.post(this.url+"admin-user", body);
   }
 
-  /* registerUser(body: any):Observable<any>{
-    return this._http.post(this.url+"new-usuario", body);
-  } */
+  registerUser(newUser: any):Observable<any>{
+    var body = JSON.stringify(newUser);
+    var headers = new HttpHeaders().set("Content-type", "application/json");
+    return this._http.post(this.url+"new-usuario", body,{headers:headers});
+  }
 }

@@ -31,13 +31,13 @@
             </small>
 
             <div class="container_derecha_informacion_terminos">
-                <input type="checkbox" name="terminos" id="terminos" required #terminos="ngModel" ngModel>
+                <input type="checkbox" name="terminos" id="terminos" #terminos="ngModel" ngModel>
                 <label for="terminos">Acepto los términos y condiciones</label>
             </div>
 
-            <small *ngIf="!terminos.value && registerForm.invalid" class="mensajeError">
+            <!-- <small *ngIf="!terminos.value" class="mensajeError">
                 No has aceptado los términos
-            </small>
+            </small> -->
 
             <div class="container_derecha_informacion_boton">
                 <!-- <button type="button" class="btn-login">REGISTER</button> -->

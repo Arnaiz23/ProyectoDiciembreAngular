@@ -40,6 +40,7 @@ export class FutbolComponent implements OnInit {
   }
 
   ordenar(opcion: string){
+    console.log("Hola");
     this._productoServices.ordenarProductos(opcion,"futbol").subscribe(
       response =>{
         // console.log(response.productos);
