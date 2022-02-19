@@ -25,6 +25,7 @@ export class FutbolComponent implements OnInit {
     private _usuarioService: UsuarioService
   ) { 
     this.url = global.url;
+    this.listaMarcas = [];
   }
 
   ngOnInit(): void {
@@ -32,6 +33,7 @@ export class FutbolComponent implements OnInit {
       response =>{
         // console.log(response.productos)
         this.productos = response.productos;
+        this.recorrerMarcas();
       },
       error =>{
         console.log(error);
@@ -71,4 +73,15 @@ export class FutbolComponent implements OnInit {
     }
   }
 
+  async recorrerMarcas(){
+    for await (let data of this.productos){
+      if(!this.listaMarcas.includes(data.marca)){
+        this.listaMarcas.push(data.marca)
+      }
+      // console.log(data.marca);
+    }
+
+    console.log(this.listaMarcas);
+  }
+  
 }

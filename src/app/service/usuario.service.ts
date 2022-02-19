@@ -90,4 +90,11 @@ export class UsuarioService {
     var headers = new HttpHeaders().set("Content-type", "application/json");
     return this._http.post(this.url+"new-usuario", body,{headers:headers});
   }
+
+  updateUser(id:any, updateUser:any):Observable<any>{
+    let headers = new HttpHeaders().set("Content-type", "application/json");
+    let body = JSON.stringify(updateUser);
+    return this._http.put(this.url+"/updateUsuario/"+id, body,{headers:headers});
+  }
+  
 }

@@ -1,18 +1,19 @@
 <div id="contenedor_administrarUsuario">
-    <h3>Datos</h3>
-    <p>Nombre</p>
-    <input type="text" name="nombreAdministracion" id="nombreAdministracion" placeholder="{{usuario.nombre}}">
-    <p>Apellidos</p>
-    <input type="text" name="apellidosAdministracion" id="apellidosAdministracion" placeholder="{{usuario.apellidos}}">
-    <p>Correo</p>
-    <input type="text" name="correoAdministracion" id="correoAdministracion" placeholder="{{usuario.correo}}">
-    <div class="linea"></div>
-    <h3>Contraseña</h3>
-    <p>Cambiar contraseña</p>
-    <input type="password" name="passwordAdministracion" id="passwordAdministracion">
-    <p>Confirmación</p>
-    <input type="password" name="passwordAdministracion2" id="passwordAdministracion2">
-    <button type="button" id="actualizarCuenta" (click)="actualizarCuenta()">Actualizar</button>
+    <form action="" id="formAdministrarUsuario" #administrarUserForm="ngForm">
+        <h3>Datos</h3>
+        <label for="nombreAdministracion">Nombre</label>
+        <input type="text" name="nombreAdministracion" id="nombreAdministracion" placeholder="" [(ngModel)]="updateUser.nombre" #usuario="ngModel">
+        <label for="apellidosAdministracion">Apellidos</label>
+        <input type="text" name="apellidosAdministracion" id="apellidosAdministracion"
+            placeholder="" [(ngModel)]="updateUser.apellidos" #usuario="ngModel">
+        <div class="linea"></div>
+        <h3>Contraseña</h3>
+        <label for="passwordAdministracion">Cambiar contraseña</label>
+        <input type="password" name="passwordAdministracion" id="passwordAdministracion" [(ngModel)]="updateUser.password" #usuario="ngModel">
+        <label for="passwordAdministracion2">Confirmación</label>
+        <input type="password" name="passwordAdministracion2" id="passwordAdministracion2">
+        <button type="button" id="actualizarCuenta" (click)="actualizarCuenta()">Actualizar</button>
+    </form>
     <div class="linea"></div>
     <h3>Eliminar cuenta</h3>
     <button type="button" id="eliminarCuenta">Eliminar</button>

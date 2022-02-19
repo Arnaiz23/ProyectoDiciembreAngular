@@ -18,6 +18,7 @@ export class BaloncestoComponent implements OnInit {
   public productos!: Producto[];
   public url: string;
   public usuario!: boolean;
+  public listaMarcas!: Array<any>;
 
   constructor(
     private _productoServices: ProductosService,
@@ -34,6 +35,7 @@ export class BaloncestoComponent implements OnInit {
         }
       )
     }
+    this.listaMarcas = [];
   }
 
   ngOnInit(): void {
@@ -41,6 +43,7 @@ export class BaloncestoComponent implements OnInit {
       response =>{
         // console.log(response.productos)
         this.productos = response.productos;
+        this.recorrerMarcas();
       },
       error =>{
         console.log(error);
@@ -79,4 +82,15 @@ export class BaloncestoComponent implements OnInit {
     }
   }
 
+  async recorrerMarcas(){
+    for await (let data of this.productos){
+      if(!this.listaMarcas.includes(data.marca)){
+        this.listaMarcas.push(data.marca)
+      }
+      // console.log(data.marca);
+    }
+
+    console.log(this.listaMarcas);
+  }
+  
 }
