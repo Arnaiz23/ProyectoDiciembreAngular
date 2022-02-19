@@ -33,23 +33,23 @@
         <div class="main_container_derecha_opciones">
             <h3 class="subtitulo_opciones_filtro">Marca</h3>
             <div class="main_container_derecha_opciones_marca">
+                <div class="opciones_filtro" *ngFor="let marca of listaMarcas">
+                    <input type="checkbox" name="marca[]" id="{{marca}}">
+                    <label for="{{marca}}">{{marca}}</label>
+                </div>
                 <!-- <div class="opciones_filtro">
-                <input type="checkbox" name="marca[]" id="nike">
-                <label for="nike">Nike</label>
-            </div>
-            <div class="opciones_filtro">
-                <input type="checkbox" name="marca[]" id="adidas">
-                <label for="adidas">Adidas</label>
-            </div> -->
+                    <input type="checkbox" name="marca[]" id="adidas">
+                    <label for="adidas">Adidas</label>
+                </div> -->
             </div>
             <div class="linea"></div>
             <h3 class="subtitulo_opciones_filtro">Tipo</h3>
             <div class="main_container_derecha_opciones_tipos">
-                <!-- <div class="opciones_filtro">
-                <input type="checkbox" name="tipo[]" id="camiseta">
-                <label for="camiseta">Camiseta</label>
-            </div>
-            <div class="opciones_filtro">
+                <div class="opciones_filtro" *ngFor="let tipo of listaTipos">
+                    <input type="checkbox" name="tipo[]" id="{{tipo}}">
+                    <label for="{{tipo}}">{{tipo}}</label>
+                </div>
+            <!-- <div class="opciones_filtro">
                 <input type="checkbox" name="tipo[]" id="pantalon">
                 <label for="pantalon">Pantalón</label>
             </div> -->

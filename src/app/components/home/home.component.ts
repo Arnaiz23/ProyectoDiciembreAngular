@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { global } from 'src/app/service/global';
 import { ProductosService } from 'src/app/service/productos.service';
@@ -15,9 +15,15 @@ export class HomeComponent implements OnInit {
     return this._usuarioService.usuario;
   }
 
+  /* public get getMarcas() {
+    return this._productoService.marcas;
+  } */
+
   public precio: number;
   public searchString!: string;
   public usuario!: boolean;
+  public listaMarcas!: any ;
+  public listaTipos!: any ;
 
   constructor(
     private _productoService: ProductosService,
@@ -30,10 +36,13 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.precio = this._productoService.devolverPrecio();
+    this.recogerMarcas();
   }
 
   ngDoCheck(){
     this.precio = this._productoService.devolverPrecio();
+    this.listaMarcas = this.recogerMarcas();
+    this.listaTipos = this.recogerTipos();
   }
 
   search(){
@@ -41,6 +50,18 @@ export class HomeComponent implements OnInit {
       this._router.navigate(['/']);
     }else{
       this._router.navigate(['/search', this.searchString]); 
+    }
+  }
+
+  recogerMarcas(){
+    if (localStorage.getItem("marcas") != null) {
+      return JSON.parse(localStorage.getItem("marcas") || '{}');
+    }
+  }
+  
+  recogerTipos(){
+    if (localStorage.getItem("tipos") != null) {
+      return JSON.parse(localStorage.getItem("tipos") || '{}');
     }
   }
 

@@ -12,6 +12,7 @@ export class ProductosService {
   public url: string;
   public precio!: number;
   public carrito: Array<any>;
+  public marcas!: Array<any>;
 
   constructor(
     private _http: HttpClient

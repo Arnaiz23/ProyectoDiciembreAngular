@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Producto } from 'src/app/models/producto';
 import { global } from 'src/app/service/global';
 import { ProductosService } from 'src/app/service/productos.service';
@@ -21,8 +21,7 @@ export class FutbolComponent implements OnInit {
   public usuario!: boolean;
 
   constructor(
-    private _productoServices: ProductosService,
-    private _usuarioService: UsuarioService
+    private _productoServices: ProductosService,private _usuarioService: UsuarioService
   ) { 
     this.url = global.url;
     this.listaMarcas = [];
@@ -34,6 +33,7 @@ export class FutbolComponent implements OnInit {
         // console.log(response.productos)
         this.productos = response.productos;
         this.recorrerMarcas();
+        this.recorrerTipos();
       },
       error =>{
         console.log(error);
@@ -74,14 +74,23 @@ export class FutbolComponent implements OnInit {
   }
 
   async recorrerMarcas(){
+    let marcas: any = [];
     for await (let data of this.productos){
-      if(!this.listaMarcas.includes(data.marca)){
-        this.listaMarcas.push(data.marca)
+      if(!marcas.includes(data.marca)){
+        marcas.push(data.marca)
       }
-      // console.log(data.marca);
     }
+    localStorage.setItem("marcas",JSON.stringify(marcas));
+  }
 
-    console.log(this.listaMarcas);
+  async recorrerTipos(){
+    let tipos: any = [];
+    for await (let data of this.productos){
+      if(!tipos.includes(data.tipo)){
+        tipos.push(data.tipo)
+      }
+    }
+    localStorage.setItem("tipos",JSON.stringify(tipos));
   }
   
 }

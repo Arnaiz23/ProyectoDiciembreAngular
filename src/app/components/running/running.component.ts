@@ -25,16 +25,6 @@ export class RunningComponent implements OnInit {
     private _usuarioService: UsuarioService
   ) { 
     this.url = global.url;
-    if(_usuarioService.getToken() != ""){
-      _usuarioService.identidad().subscribe(
-        response =>{
-          this.usuario = true;
-        },
-        err =>{
-          console.log(err.error);
-        }
-      )
-    }
     this.listaMarcas = [];
   }
 
@@ -44,6 +34,7 @@ export class RunningComponent implements OnInit {
         // console.log(response.productos)
         this.productos = response.productos;
         this.recorrerMarcas();
+        this.recorrerTipos();
       },
       error =>{
         console.log(error);
@@ -90,7 +81,18 @@ export class RunningComponent implements OnInit {
       // console.log(data.marca);
     }
 
-    console.log(this.listaMarcas);
+    // console.log(this.listaMarcas);
+    localStorage.setItem("marcas",JSON.stringify(this.listaMarcas));
+  }
+
+  async recorrerTipos(){
+    let tipos: any = [];
+    for await (let data of this.productos){
+      if(!tipos.includes(data.tipo)){
+        tipos.push(data.tipo)
+      }
+    }
+    localStorage.setItem("tipos",JSON.stringify(tipos));
   }
 
 }
