@@ -34,7 +34,7 @@ export class DireccionesUsuarioComponent implements OnInit {
         // console.log(response.usuario[0])
         this.usuario = response.usuario[0];
         this.direcciones = this.usuario.direcciones;
-        console.log(this.direcciones);
+        // console.log(this.direcciones);
       },
       err =>{
         console.log(err.error)

@@ -6,6 +6,6 @@
     </div>
 </div>
 
-<div id="contenedor_administrarUsuario" *ngIf="!direcciones">
+<div id="contenedor_administrarUsuario" *ngIf="!direcciones || direcciones.length == 0">
     <h2>No hay direcciones registradas</h2>
 </div>
