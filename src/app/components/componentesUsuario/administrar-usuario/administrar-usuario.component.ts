@@ -82,7 +82,8 @@ export class AdministrarUsuarioComponent implements OnInit {
             });
             this._usuarioService.deleteToken();
             this._router.navigate(["/"]);
-            window.location.reload();
+            // window.location.reload();
+            this._usuarioService.cambiarIdentidad();
           },
           error =>{
             console.log(error);
