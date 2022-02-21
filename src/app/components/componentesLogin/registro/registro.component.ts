@@ -23,14 +23,10 @@ export class RegistroComponent implements OnInit {
   }
 
   enviar(){
-    // console.log(this.newUsuario);
-    // ! Mirar pq ya no me crean mas usuarios
-
-    // console.log(this.newUsuario);
     this._usuarioService.registerUser(this.newUsuario).subscribe(
       response =>{
         // console.log(response);
-        this._router.navigate(["/"]);
+        this._router.navigate(["/login/inicio"]);
       },
       error =>{
         console.log(error);

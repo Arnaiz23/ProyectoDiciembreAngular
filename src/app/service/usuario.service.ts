@@ -96,5 +96,9 @@ export class UsuarioService {
     let body = JSON.stringify(updateUser);
     return this._http.put(this.url+"/updateUsuario/"+id, body,{headers:headers});
   }
+
+  deleteUser(id: any):Observable<any>{
+    return this._http.delete(this.url+"deleteUser/"+id);
+  }
   
 }

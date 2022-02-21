@@ -13,7 +13,8 @@
     </div>
     <div class="main_container_derecha">
         <h3 class="pregunta_titulo">Dejanos tu pregunta</h3>
+        <input type="text" name="correoPregunta" id="correoPregunta" placeholder="Correo" *ngIf="!usuario">
         <textarea name="pregunta" id="preguntaUsuario" cols="30" rows="10" placeholder="Pregunta..."></textarea>
-        <button type="button" id="pregunta_enviar">ENVIAR</button>
+        <button type="button" id="pregunta_enviar" (click)="enviarPregunta()">ENVIAR</button>
     </div>
 </div>

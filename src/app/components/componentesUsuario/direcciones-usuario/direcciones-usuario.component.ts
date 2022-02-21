@@ -14,6 +14,9 @@ export class DireccionesUsuarioComponent implements OnInit {
     return this._usuarioService.usuario;
   }
 
+  public usuario!: Usuario;
+  public direcciones!: Array<any>;
+
   constructor(
     private _usuarioService: UsuarioService,
     private _router: Router
@@ -22,6 +25,21 @@ export class DireccionesUsuarioComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.identidad();
+  }
+
+  identidad(){
+    this._usuarioService.identidad().subscribe(
+      response =>{
+        // console.log(response.usuario[0])
+        this.usuario = response.usuario[0];
+        this.direcciones = this.usuario.direcciones;
+        console.log(this.direcciones);
+      },
+      err =>{
+        console.log(err.error)
+      }
+    )
   }
 
 }

@@ -1,7 +1,11 @@
-<div id="contenedor_administrarUsuario">
-    <h2>Direccion 1</h2>
-    <p>direccion</p>
-    <div class="linea2"></div>
-    <h2>Direccion 1</h2>
-    <p>direccion</p>
+<div id="contenedor_administrarUsuario" *ngIf="direcciones">
+    <div *ngFor="let direccion of direcciones;let indice=index">
+        <h2>Direccion {{indice+1}}</h2>
+        <p>{{direccion.calle}}</p>
+        <div class="linea2"></div>
+    </div>
+</div>
+
+<div id="contenedor_administrarUsuario" *ngIf="!direcciones">
+    <h2>No hay direcciones registradas</h2>
 </div>

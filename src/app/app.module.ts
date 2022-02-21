@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';  //MUY IMPORTANTE PARA HTTP
-import { MomentModule } from "angular2-moment"; //Pipes de fechas
-import { AngularFileUploaderModule } from 'angular-file-uploader'; //Modulo para subir imagenes
+import { HttpClientModule } from '@angular/common/http';  //! MUY IMPORTANTE PARA HTTP
+import { MomentModule } from "angular2-moment"; //* Pipes de fechas
+import { AngularFileUploaderModule } from 'angular-file-uploader'; //* Modulo para subir imagenes
 import { CookieService } from "ngx-cookie-service";
 
 import { AppComponent } from './app.component';

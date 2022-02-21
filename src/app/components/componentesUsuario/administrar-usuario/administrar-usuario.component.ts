@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from 'src/app/models/usuario';
 import { UsuarioService } from 'src/app/service/usuario.service';
+import swal from "sweetalert";
 
 @Component({
   selector: 'app-administrar-usuario',
@@ -47,13 +48,52 @@ export class AdministrarUsuarioComponent implements OnInit {
       response =>{
         // console.log(response);
         // *Alerta
-        alert("Usuario actualizado correctamente")
+        // alert("Usuario actualizado correctamente")
+        swal(
+          "Cuenta actualizada!!",
+          "Tus datos han sido actualizados",
+          "success"
+        );
         this._router.navigate(["/usuario/administrar"]);
       },
       error =>{
         console.log(error);
       }
     )
+  }
+
+  eliminarCuenta(){
+    /* if(confirm("Estas seguro de eliminarla????")){
+      alert("Eliminada");
+    } */
+    swal({
+      title: "¿Estas seguro?",
+      text: "Una vez eliminada, no se podra recuperar",
+      icon: "warning",
+      buttons: [true,true],
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        this._usuarioService.deleteUser(this.usuario._id).subscribe(
+          response =>{
+            swal("Finalizado, tu usuario ha sido eliminado correctamente", {
+              icon: "success",
+            });
+            this._usuarioService.deleteToken();
+            this._router.navigate(["/"]);
+            window.location.reload();
+          },
+          error =>{
+            console.log(error);
+          }
+        )
+      } else {
+        swal("Tu usuario esta a salvo",{
+          icon: "success",
+        });
+      }
+    });
   }
 
 }
