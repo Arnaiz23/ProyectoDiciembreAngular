@@ -58,7 +58,8 @@ export class RunningComponent implements OnInit {
     // console.log(producto);
     // let cantidad = event.target.parentElement.previousElementSibling.children[1].value;
     let cantidad = (<HTMLInputElement>document.getElementById("cantidad"+producto._id));
-    this._productoServices.addCarrito("add",producto, parseInt(cantidad.value));
+    // this._productoServices.addCarrito(producto, parseInt(cantidad.value));
+    // this._productoServices.addCarrito("add",producto, parseInt(cantidad.value));
   }
 
   addCantidad(event: any){

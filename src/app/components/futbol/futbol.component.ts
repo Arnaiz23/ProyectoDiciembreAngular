@@ -1,6 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Producto } from 'src/app/models/producto';
+import { Usuario } from 'src/app/models/usuario';
 import { global } from 'src/app/service/global';
+import { PedidosService } from 'src/app/service/pedidos.service';
 import { ProductosService } from 'src/app/service/productos.service';
 import { UsuarioService } from 'src/app/service/usuario.service';
 
@@ -18,10 +20,11 @@ export class FutbolComponent implements OnInit {
   public productos!: Producto[];
   public url: string;
   public listaMarcas!: Array<any>;
-  public usuario!: boolean;
+  public usuario!: Usuario;
 
   constructor(
-    private _productoServices: ProductosService,private _usuarioService: UsuarioService
+    private _productoServices: ProductosService,private _usuarioService: UsuarioService,
+    private _pedidosService: PedidosService
   ) { 
     this.url = global.url;
     this.listaMarcas = [];
@@ -37,6 +40,19 @@ export class FutbolComponent implements OnInit {
       },
       error =>{
         console.log(error);
+      }
+    )
+    this.identidad();
+  }
+
+  identidad(){
+    this._usuarioService.identidad().subscribe(
+      response =>{
+        // console.log(response.usuario[0])
+        this.usuario = response.usuario[0];
+      },
+      err =>{
+        console.log(err.error)
       }
     )
   }
@@ -58,7 +74,42 @@ export class FutbolComponent implements OnInit {
     // console.log(producto);
     // let cantidad = event.target.parentElement.previousElementSibling.children[1].value;
     let cantidad = (<HTMLInputElement>document.getElementById("cantidad"+producto._id));
-    this._productoServices.addCarrito("add",producto, parseInt(cantidad.value));
+
+    // !Pedidos
+
+    let pedidos:any = [];
+    if(localStorage.getItem("carrito2") != null){
+      this._pedidosService.getPedidos(this.usuario._id).subscribe(
+        response =>{
+          // pedidos.push(response.pedidos);
+          this._productoServices.addCarrito(producto, parseInt(cantidad.value),this.usuario._id,response.pedidos[0].pedido).subscribe(
+            response =>{
+              // console.log(response);
+              if(localStorage.getItem("carrito2") == null || localStorage.getItem("carrito2") == "") localStorage.setItem("carrito2",JSON.stringify(response.message._id));
+            },
+            error =>{
+              console.log(error);
+            }
+          );
+        },
+        error =>{
+          console.log(error);
+        }
+      )
+    }else{
+      this._productoServices.addCarrito(producto, parseInt(cantidad.value),this.usuario._id,[]).subscribe(
+        response =>{
+          // console.log(response.message);
+          if(localStorage.getItem("carrito2") == null || localStorage.getItem("carrito2") == "") localStorage.setItem("carrito2",JSON.stringify(response.message._id));
+        },
+        error =>{
+          console.log(error);
+        }
+      );
+    }
+    
+    
+    // this._productoServices.addCarrito("add",producto, parseInt(cantidad.value));
   }
 
   addCantidad(event: any){
