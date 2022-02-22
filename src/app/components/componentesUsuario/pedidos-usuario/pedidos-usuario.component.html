@@ -1,8 +1,12 @@
-<div id="contenedor_administrarUsuario">
+<div id="contenedor_administrarUsuario" *ngIf="pedido">
     <div class="pedidos" *ngFor="let pedido1 of pedido">
         <img src="{{url+'get-image/'+pedido1.imagen}}" class="imagenPedido">
         <p class="nombrePedido">{{pedido1.nombre}}</p>
         <p class="fechaPedido">{{pedido1.cantidad}}</p>
         <p class="numeroPedido">{{pedido1.precio}} €</p>
     </div>
+</div>
+
+<div id="contenedor_administrarUsuario" *ngIf="!pedido">
+    <h3>No hay pedidos</h3>
 </div>
