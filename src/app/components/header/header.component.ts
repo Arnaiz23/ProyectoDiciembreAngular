@@ -49,7 +49,7 @@ export class HeaderComponent implements OnInit {
   logOut(){
     this._usuarioService.deleteToken();
     this._usuarioService.cambiarIdentidad();
-    alert("Has cerrado sesion");
+    // alert("Has cerrado sesion");
   }
 
 }
