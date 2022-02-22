@@ -79,9 +79,10 @@ export class FutbolComponent implements OnInit {
 
     let pedidos:any = [];
     if(localStorage.getItem("carrito2") != null){
-      this._pedidosService.getPedidos(this.usuario._id).subscribe(
+      this._pedidosService.getPedido(JSON.parse(localStorage.getItem("carrito2") || "")).subscribe(
         response =>{
           // pedidos.push(response.pedidos);
+          // console.log(response.pedidos[0].pedido);
           this._productoServices.addCarrito(producto, parseInt(cantidad.value),this.usuario._id,response.pedidos[0].pedido).subscribe(
             response =>{
               // console.log(response);
@@ -97,7 +98,7 @@ export class FutbolComponent implements OnInit {
         }
       )
     }else{
-      this._productoServices.addCarrito(producto, parseInt(cantidad.value),this.usuario._id,[]).subscribe(
+      this._productoServices.addCarrito(producto, parseInt(cantidad.value),this.usuario._id).subscribe(
         response =>{
           // console.log(response.message);
           if(localStorage.getItem("carrito2") == null || localStorage.getItem("carrito2") == "") localStorage.setItem("carrito2",JSON.stringify(response.message._id));

@@ -64,7 +64,8 @@ export class FormCompraComponent implements OnInit {
       response => {
         // console.log(response);
         swal("Exito","Compra realizada con exito","success");
-        localStorage.removeItem("carrito");
+        // localStorage.removeItem("carrito");
+        localStorage.removeItem("carrito2");
         this._router.navigate(['/']);
       },
       error =>{

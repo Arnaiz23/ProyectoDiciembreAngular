@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ChildActivationEnd, Router } from '@angular/router';
 import { Producto } from 'src/app/models/producto';
 import { global } from 'src/app/service/global';
+import { PedidosService } from 'src/app/service/pedidos.service';
 import { ProductosService } from 'src/app/service/productos.service';
 import { UsuarioService } from 'src/app/service/usuario.service';
 
@@ -23,6 +24,7 @@ export class CarritoComponent implements OnInit {
 
   constructor(
     private _productoService: ProductosService,
+    private _pedidoService: PedidosService,
     private _usuarioService: UsuarioService,
     private _router: Router
   ) { 
@@ -45,7 +47,14 @@ export class CarritoComponent implements OnInit {
   ngOnInit(): void {
     /* let producto =  new Producto("","","comida","","","","","","","",null);
     this._productoService.addCarrito("add", producto); */
-    this.carrito = this._productoService.devolverCarrito();
+    this._pedidoService.getPedido(JSON.parse(localStorage.getItem("carrito2")||"")).subscribe(
+      response =>{
+        this.carrito = response.pedidos[0].pedido;
+      },
+      error =>{
+        console.log(error);
+      }
+    );
     
   }
 

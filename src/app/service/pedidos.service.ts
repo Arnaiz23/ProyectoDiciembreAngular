@@ -20,6 +20,10 @@ export class PedidosService {
     return this._http.get(this.url+"getPedidos/"+id);
   }
 
+  getPedido(id:string):Observable<any>{
+    return this._http.get(this.url+"getPedido/"+id);
+  }
+
   newPedido(body:string):Observable<any>{
     let body2 = JSON.stringify(body);
     let headers = new HttpHeaders().set("Content-type","application/json");
