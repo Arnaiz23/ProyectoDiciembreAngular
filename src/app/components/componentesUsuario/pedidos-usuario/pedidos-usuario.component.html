@@ -1,8 +1,8 @@
 <div id="contenedor_administrarUsuario">
-    <div class="pedidos">
-        <img src="assets/images/voley.png" class="imagenPedido">
-        <p class="nombrePedido">nombre</p>
-        <p class="fechaPedido">cantidad</p>
-        <p class="numeroPedido">precio €</p>
+    <div class="pedidos" *ngFor="let pedido1 of pedido">
+        <img src="{{url+'get-image/'+pedido1.imagen}}" class="imagenPedido">
+        <p class="nombrePedido">{{pedido1.nombre}}</p>
+        <p class="fechaPedido">{{pedido1.cantidad}}</p>
+        <p class="numeroPedido">{{pedido1.precio}} €</p>
     </div>
 </div>
