@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Pedido } from 'src/app/models/pedido';
 import { global } from 'src/app/service/global';
@@ -84,7 +84,6 @@ export class HomeComponent implements OnInit {
           this.precio += pedido.precio * parseInt(pedido.cantidad);
         })
         // console.log(this.precio);
-        return this.precio;
       },
       error =>{
         console.log(error);

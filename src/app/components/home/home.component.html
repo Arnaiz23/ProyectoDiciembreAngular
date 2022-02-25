@@ -16,8 +16,8 @@
         <h2 class="main_container_derecha_titulo"><span class="icon-cart"></span>Carrito</h2>
         <div class="main_container_derecha_carrito" *ngIf="currentUser == 'usuario'">
             <p>Carrito</p>
+            <!-- <p>{{getPrecio | number: '1.0-2'}} €</p> -->
             <p>{{precio | number: '1.0-2'}} €</p>
-            <!-- <p>{{precio | number: '1.0-2'}} €</p> -->
         </div>
         <div class="main_container_derecha_carrito" *ngIf="!currentUser">
             <p>Inicia sesión para acceder</p>
