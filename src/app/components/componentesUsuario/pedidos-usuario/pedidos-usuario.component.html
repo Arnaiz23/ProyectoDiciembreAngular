@@ -1,4 +1,5 @@
 <div id="contenedor_administrarUsuario" *ngIf="pedido">
+    <h3 class="subheader">Mis pedidos</h3>
     <div class="pedidos" *ngFor="let pedido1 of pedido">
         <img src="{{url+'get-image/'+pedido1.imagen}}" class="imagenPedido">
         <p class="nombrePedido">{{pedido1.nombre}}</p>

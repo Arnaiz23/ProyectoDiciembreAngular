@@ -35,4 +35,8 @@ export class PedidosService {
     let headers = new HttpHeaders().set("Content-type","application/json");
     return this._http.put(this.url+"updatePedido/"+id,body2,{headers:headers});
   }
+
+  deletePedido(id: string):Observable<any>{
+    return this._http.delete(this.url+"deletePedido/"+id);
+  }
 }

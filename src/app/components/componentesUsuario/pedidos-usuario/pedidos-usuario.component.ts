@@ -66,7 +66,7 @@ export class PedidosUsuarioComponent implements OnInit {
             // this.pedido.push(data.pedido)
           })
           this.pedido = pedidoTotal;
-          // console.log(this.pedido);
+          console.log(this.pedido);
         }
         
 
