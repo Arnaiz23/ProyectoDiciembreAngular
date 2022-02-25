@@ -11,6 +11,6 @@ export class Pedido{
         public imagen: string,
         public nombre: string,
         public cantidad: string,
-        public precio: string
+        public precio: number
     ){}
 }

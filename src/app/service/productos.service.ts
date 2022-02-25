@@ -75,55 +75,32 @@ export class ProductosService {
 
   // addCarrito(opcion: string, producto?: any, cantidad?: number):Observable<any> {
   addCarrito(producto: any, cantidad: number, id: string, pedidos?: Pedido[]):Observable<any> {
-    /* if (opcion != "add") {
-      this.carrito = [];
-    } else { */
-      // if (producto) {
-        /* let newproducto = {
-          imagen: producto.imagen,
-          nombre: producto.nombre,
-          cantidad: cantidad,
-          precio: producto.precio
-        } */
-        let newproducto = new Pedido(producto.imagen,producto.nombre,cantidad.toString(),producto.precio);
-        /* let coincidencia = this.carrito.find(productos => {
-          return productos.nombre == producto.nombre;
-        });
-        if(coincidencia){
-          // coincidencia.cantidad++;
-          coincidencia.cantidad += cantidad;
-          localStorage.setItem("carrito", JSON.stringify(this.carrito));
-        }else{
-          this.carrito.push(newproducto);
-          localStorage.setItem("carrito", JSON.stringify(this.carrito));
-        } */
+    let newproducto = new Pedido(producto.imagen,producto.nombre,cantidad.toString(),producto.precio);
 
-        if(localStorage.getItem("carrito2") == null || localStorage.getItem("carrito2") == ""){
-          // * Añadir carrito
-          // ! Carrito no existe
-          let nuevoPedido = {
-            "pedido" : newproducto,
-            "id_usuario" : id
-          }
-          let body = JSON.stringify(nuevoPedido);
-          let headers = new HttpHeaders().set("Content-type","application/json");
-          return this._http.post(this.url+"newPedido",body,{headers:headers});
-        }else{
-          // * Update el carrito
-          // ! Carrito o pedido si existe ya
-          let pedidosTotales = pedidos || [];
-          pedidosTotales.push(newproducto);
-          let nuevoPedido = {
-            "pedido" : pedidosTotales,
-            "id_usuario" : id
-          }
-          let body = JSON.stringify(nuevoPedido);
-          let idPedido = JSON.parse(localStorage.getItem("carrito2")|| "");
-          let headers = new HttpHeaders().set("Content-type","application/json");
-          return this._http.put(this.url+"updatePedido/"+idPedido,body,{headers:headers});
-        }
-      // }
-    // }
+    if(localStorage.getItem("carrito2") == null || localStorage.getItem("carrito2") == ""){
+      // * Añadir carrito
+      // ! Carrito no existe
+      let nuevoPedido = {
+        "pedido" : newproducto,
+        "id_usuario" : id
+      }
+      let body = JSON.stringify(nuevoPedido);
+      let headers = new HttpHeaders().set("Content-type","application/json");
+      return this._http.post(this.url+"newPedido",body,{headers:headers});
+    }else{
+      // * Update el carrito
+      // ! Carrito o pedido si existe ya
+      let pedidosTotales = pedidos || [];
+      pedidosTotales.push(newproducto);
+      let nuevoPedido = {
+        "pedido" : pedidosTotales,
+        "id_usuario" : id
+      }
+      let body = JSON.stringify(nuevoPedido);
+      let idPedido = JSON.parse(localStorage.getItem("carrito2")|| "");
+      let headers = new HttpHeaders().set("Content-type","application/json");
+      return this._http.put(this.url+"updatePedido/"+idPedido,body,{headers:headers});
+    }
   }
 
   devolverCarrito() {
