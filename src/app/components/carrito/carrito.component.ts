@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChildActivationEnd, Router } from '@angular/router';
 import { Producto } from 'src/app/models/producto';
+import { Usuario } from 'src/app/models/usuario';
 import { global } from 'src/app/service/global';
 import { PedidosService } from 'src/app/service/pedidos.service';
 import { ProductosService } from 'src/app/service/productos.service';
@@ -18,7 +19,7 @@ export class CarritoComponent implements OnInit {
   }
 
   public carrito: Array<any>;
-  public usuario!: boolean;
+  public usuario!: Usuario;
   public precio: number;
   public url: string;
 
@@ -29,7 +30,7 @@ export class CarritoComponent implements OnInit {
     private _router: Router
   ) { 
     // this.usuario = _usuarioService.usuario;
-    if(_usuarioService.getToken() != ""){
+    /* if(_usuarioService.getToken() != ""){
       _usuarioService.identidad().subscribe(
         response =>{
           this.usuario = true;
@@ -38,7 +39,7 @@ export class CarritoComponent implements OnInit {
           console.log(err.error);
         }
       )
-    }
+    } */
     this.precio = _productoService.devolverPrecio();
     this.carrito = [];
     this.url = global.url;
@@ -55,7 +56,19 @@ export class CarritoComponent implements OnInit {
         console.log(error);
       }
     );
-    
+    this.identidad();
+  }
+
+  identidad(){
+    this._usuarioService.identidad().subscribe(
+      response =>{
+        // console.log(response.usuario[0])
+        this.usuario = response.usuario[0];
+      },
+      err =>{
+        console.log(err.error)
+      }
+    )
   }
 
   ngDoCheck(){
@@ -75,9 +88,18 @@ export class CarritoComponent implements OnInit {
 
   eliminarProducto(producto: any){
     // console.log(producto);
+    const pedidoId = JSON.parse(localStorage.getItem("carrito2") || "");
     let index = this.carrito.indexOf(producto);
     this.carrito.splice(index,1);
-    localStorage.setItem("carrito", JSON.stringify(this.carrito));
+    this._pedidoService.updatePedido(pedidoId,this.carrito,this.usuario._id).subscribe(
+      response =>{
+        console.log(response);
+      },
+      error =>{
+        console.log(error);
+      }
+    )
+    // localStorage.setItem("carrito", JSON.stringify(this.carrito));
   }
 
 }

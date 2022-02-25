@@ -30,10 +30,14 @@ export class PedidosService {
     return this._http.post(this.url+"newPedido",body2,{headers:headers});
   }
 
-  updatePedido(id: string, body:string):Observable<any>{
-    let body2 = JSON.stringify(body);
+  updatePedido(id: string, body:any, idUsuario: string):Observable<any>{
+    let body2 = {
+      "_id" : id,
+      "pedido" : body,
+      "id_usuario" : idUsuario
+    };
     let headers = new HttpHeaders().set("Content-type","application/json");
-    return this._http.put(this.url+"updatePedido/"+id,body2,{headers:headers});
+    return this._http.put(this.url+"updatePedido/"+id,JSON.stringify(body2),{headers:headers});
   }
 
   deletePedido(id: string):Observable<any>{

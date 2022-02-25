@@ -31,6 +31,7 @@ export class HomeComponent implements OnInit {
     private _usuarioService: UsuarioService
   ) { 
     // this.precio = _productoService.cambiarPrecio(20);
+
     this.precio = _productoService.devolverPrecio();
   }
 
