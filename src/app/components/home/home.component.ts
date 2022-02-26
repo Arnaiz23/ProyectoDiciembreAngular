@@ -91,4 +91,8 @@ export class HomeComponent implements OnInit {
     )
   }
 
+  filtrarData(){
+    alert("Actualmente esta opcion no funciona");
+  }
+
 }
