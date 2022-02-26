@@ -1,5 +1,5 @@
 <div id="contenedor_administrarUsuario" *ngIf="direcciones">
-    <div *ngFor="let direccion of direcciones;let indice=index">
+    <div *ngFor="let direccion of direcciones;let indice=index" class="containerDirecciones">
         <h2>Direccion {{indice+1}}</h2>
         <p>{{direccion.calle}}</p>
         <div class="linea2"></div>

@@ -85,6 +85,7 @@ body{
     nav{
         background-color: var(--rojo-oscuro-claro);
         width: 15%;
+        min-width: 285px;
         display: flex;
         align-items: flex-start;
         justify-content: space-evenly;
@@ -182,7 +183,7 @@ footer{
 @media screen and (max-width:1366px) {
     nav{
         width: 20%;
-        top: 20%;
+        /* top: 20%; */
     }
     nav a{
         font-size: 18px;
