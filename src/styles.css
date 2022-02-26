@@ -188,3 +188,74 @@ footer{
         font-size: 18px;
     }
 }
+
+@media screen and (max-width:1620px) {
+    .card{
+        width: 290px !important;
+    }
+}
+
+@media screen and (max-width:1574px) {
+    .card{
+        width: 280px !important;
+    }
+}
+
+@media screen and (max-width:1530px) {
+    .card{
+        width: 300px !important;
+    }
+}
+
+@media screen and (max-width:1176px) {
+    .main_container{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main_container_izquierda{
+        width: 100%;
+    }
+
+    .main_container_derecha{
+        width: 40% !important;
+    }
+
+    .opciones_filtro label{
+        text-align: center;
+        width: 74%;
+    }
+
+    .opciones_filtro input{
+        margin-right: -29px !important;
+        margin-left: 45px;
+    }
+}
+
+@media screen and (max-width:1050px) {
+    .main_container_izquierda_tarjetas{
+        width: 100% !important;
+    }
+}
+
+@media screen and (max-width:1010px) {
+    .card{
+        width: 283px !important;
+    }
+}
+
+@media screen and (max-width:962px) {
+    .card{
+        width: 270px !important;
+    }
+}
+
+@media screen and (max-width:936px) {
+    footer{
+        flex-direction: column;
+    }
+
+    .footer-item{
+        margin-top: 10px;
+    }
+}
