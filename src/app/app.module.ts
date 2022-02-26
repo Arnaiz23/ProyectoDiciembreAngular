@@ -33,6 +33,7 @@ import { DireccionesUsuarioComponent } from './components/componentesUsuario/dir
 import { TarjetasUsuarioComponent } from './components/componentesUsuario/tarjetas-usuario/tarjetas-usuario.component';
 import { SearchComponent } from './components/search/search.component';
 import { FormCompraComponent } from './components/form-compra/form-compra.component';
+import { ComunComponent } from './components/comun/comun.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { FormCompraComponent } from './components/form-compra/form-compra.compon
     DireccionesUsuarioComponent,
     TarjetasUsuarioComponent,
     SearchComponent,
-    FormCompraComponent
+    FormCompraComponent,
+    ComunComponent
   ],
   imports: [
     BrowserModule,

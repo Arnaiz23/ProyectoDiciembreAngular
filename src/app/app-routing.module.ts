@@ -11,6 +11,7 @@ import { PedidosUsuarioComponent } from './components/componentesUsuario/pedidos
 import { TarjetasUsuarioComponent } from './components/componentesUsuario/tarjetas-usuario/tarjetas-usuario.component';
 import { PreguntasAdminComponent } from './components/componentsAdmin/preguntas-admin/preguntas-admin.component';
 import { ProductosComponent } from './components/componentsAdmin/productos/productos.component';
+import { ComunComponent } from './components/comun/comun.component';
 
 
 import { ErrorComponent } from "./components/error/error.component";
@@ -27,7 +28,41 @@ import { VoleibolComponent } from './components/voleibol/voleibol.component';
 
 
 const appRoutes: Routes = [
-  {path: '', component: HomeComponent,
+  { path: '', component: ComunComponent, children: [
+    {path: '', component: HomeComponent,
+      children: [
+        // {path: '', component: FutbolComponent},
+        {path: '', redirectTo: '/futbol', pathMatch: 'full'},
+        {path: 'futbol', component: FutbolComponent},
+        {path: 'baloncesto', component: BaloncestoComponent},
+        {path: 'voleibol', component: VoleibolComponent},
+        {path: 'running', component: RunningComponent},
+        {path: 'search/:search', component: SearchComponent}
+      ]
+    },
+    {path: 'home', component: HomeComponent},
+    {path: 'preguntas', component: PreguntasComponent},
+    {path: 'carrito', component: CarritoComponent},
+    {path: 'form-compra', component: FormCompraComponent},
+    {path: 'producto/:id', component: ProductoComponent},
+    {path: 'admin', component: AdminComponent,
+      children: [
+        {path: '', redirectTo: '/admin/productos', pathMatch: 'full'},
+        {path: 'productos', component: ProductosComponent},
+        {path: 'preguntas', component: PreguntasAdminComponent}
+      ]
+    },
+    {path: 'usuario', component: UsuarioComponent,
+      children: [
+        {path: '', redirectTo: '/usuario/pedidos', pathMatch: 'full'},
+        {path: 'pedidos', component: PedidosUsuarioComponent},
+        {path: 'administrar', component: AdministrarUsuarioComponent},
+        {path: 'direcciones', component: DireccionesUsuarioComponent},
+        {path: 'tarjetas', component: TarjetasUsuarioComponent},
+      ]
+    },
+  ] },
+  /* {path: '', component: HomeComponent,
     children: [
       // {path: '', component: FutbolComponent},
       {path: '', redirectTo: '/futbol', pathMatch: 'full'},
@@ -37,8 +72,8 @@ const appRoutes: Routes = [
       {path: 'running', component: RunningComponent},
       {path: 'search/:search', component: SearchComponent}
     ]
-  },
-  {path: 'home', component: HomeComponent},
+  }, */
+  /* {path: 'home', component: HomeComponent},
   {path: 'preguntas', component: PreguntasComponent},
   {path: 'carrito', component: CarritoComponent},
   {path: 'form-compra', component: FormCompraComponent},
@@ -49,15 +84,15 @@ const appRoutes: Routes = [
       {path: 'productos', component: ProductosComponent},
       {path: 'preguntas', component: PreguntasAdminComponent}
     ]
-  },
+  }, */
   {path: 'login', component: LoginComponent,
     children: [
-      {path: '', redirectTo: '/login/registro', pathMatch: 'full'},
+      {path: '', redirectTo: '/login/inicio', pathMatch: 'full'},
       {path: 'inicio', component: InicioComponent},
       {path: 'registro', component: RegistroComponent}
     ]
   },
-  {path: 'usuario', component: UsuarioComponent,
+  /* {path: 'usuario', component: UsuarioComponent,
     children: [
       {path: '', redirectTo: '/usuario/pedidos', pathMatch: 'full'},
       {path: 'pedidos', component: PedidosUsuarioComponent},
@@ -65,7 +100,7 @@ const appRoutes: Routes = [
       {path: 'direcciones', component: DireccionesUsuarioComponent},
       {path: 'tarjetas', component: TarjetasUsuarioComponent},
     ]
-  },
+  }, */
   {path: '**', component: ErrorComponent}
 ];
 

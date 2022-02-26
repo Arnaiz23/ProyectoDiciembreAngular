@@ -147,3 +147,154 @@
         width: auto;
     }
 }
+
+
+/* *----------------------------------------------------------- */
+
+/* CONTENEDOR PRINCIPAL */
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+    /* CONTENEDOR IZQUIERDA */
+    .container_izquierda{
+        background-color: rgba(132,7,5,.5);
+        height: 100vh;
+        width: 40%;
+    }
+    .container_izquierda span{
+        font-size: 35px;
+        color: #fff;
+        position: absolute;
+        top: 3%;
+        left: 2%;
+        cursor: pointer;
+    }
+    /* CONTENEDOR DERECHA */
+    .container_derecha{
+        height: 100vh;
+        background-color: #232323;
+        width: 60%;
+        display: flex;
+        align-items: center;
+    }
+    .container_derecha_informacion{
+        /* background-color: #fff; */
+        width: 70%;
+        margin: auto;
+        display: flex;
+        /* align-items: center; */
+        justify-content: space-evenly;
+        flex-direction: column;
+    }
+        /* OPCIONES INICIO SESION */
+        .container_derecha_informacion h2{
+            color: #fff;
+            margin: 5%;
+            /* padding: 5%; */
+            font-weight: 500;
+            text-align: center;
+            width: 70%;
+        }
+        .opciones_sesion{
+            color: #fff;
+            text-decoration: none;
+            font-size: 30px;
+            font-weight: 700;
+            margin: 0 10px;
+        }
+        /* OPCIONES DATOS */
+        .container_derecha_informacion_login{
+            margin-left: 200px;
+        }
+
+        .container_derecha_informacion_login, form{
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+        }
+        form{
+            width: 90%;
+        }
+        .container_derecha_informacion_login label, form label{
+            color: #fff;
+            font-weight: 700;
+            font-size: 18px;
+            margin: 15px 0;
+        }
+        .input_datos{
+            padding: 8px;
+            background-color: transparent;
+            border: none;
+            border-bottom: 2px solid var(--gris-claro);
+            margin-bottom: 20px;
+            width: 70%;
+            color: #fff;
+        }
+        .input_datos:focus{
+            outline: none;
+            border-bottom: 2px solid var(--rojo-oscuro);
+            background-color: rgba(0,0,0,.3);
+        }
+        .input_datos::placeholder{
+            color: #fff;
+        }
+        .input_datos:last-of-type{
+            margin-bottom: 40px;
+        }
+        /* OPCIONES TERMINOS */
+        .container_derecha_informacion_terminos{
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .container_derecha_informacion_terminos input{
+            margin-right: 20px;
+        }
+        .container_derecha_informacion_terminos label{
+            font-weight: 200;
+            font-size: 13px;
+        }
+        /* BOTONES */
+        .container_derecha_informacion_boton{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 50%;
+            margin-top: 15px;
+        }
+        #boton_sesion_login,#boton_sesion_register{
+            background-color: var(--rojo-oscuro);
+            padding: 10px 20px;
+            width: 50%;
+            color: #fff;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            box-shadow: 2px 2px 2px #000;
+            transition: background-color .3s;
+        }
+        #boton_sesion_login:hover,#boton_sesion_register:hover{
+            background-color: var(--rojo-oscuro-claro);
+        }
+        #boton_sesion_contrario{
+            color: #ddd;
+            text-decoration: none;
+            font-weight: 200;
+            transition: color .3s;
+        }
+        #boton_sesion_contrario:hover{
+            color: #fff;
+        }
+
+        /* VALIDACION LOGIN */
+        .datosCorrectos{
+            border: 2px solid var(--verde);
+        }
+        .datosIncorrectos{
+            border: 2px solid var(--rojo-oscuro-claro);
+        }
+        .datosIncorrectosTexto{
+            color:red;
+            margin-top:0;
+        }

@@ -48,14 +48,16 @@ export class CarritoComponent implements OnInit {
   ngOnInit(): void {
     /* let producto =  new Producto("","","comida","","","","","","","",null);
     this._productoService.addCarrito("add", producto); */
-    this._pedidoService.getPedido(JSON.parse(localStorage.getItem("carrito2")||"")).subscribe(
-      response =>{
-        this.carrito = response.pedidos[0].pedido;
-      },
-      error =>{
-        console.log(error);
-      }
-    );
+    if(localStorage.getItem("carrito2") != null && localStorage.getItem("carrito2") != ""){
+      this._pedidoService.getPedido(JSON.parse(localStorage.getItem("carrito2")||"")).subscribe(
+        response =>{
+          this.carrito = response.pedidos[0].pedido;
+        },
+        error =>{
+          console.log(error);
+        }
+      );
+    }
     this.identidad();
   }
 

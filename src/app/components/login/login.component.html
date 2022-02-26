@@ -1,4 +1,25 @@
-<!-- <app-slider [size]="'small'"></app-slider> -->
-<div class="container_derecha">
+<!-- <div class="container_derecha">
     <router-outlet></router-outlet>
+</div> -->
+
+<div class="container">
+    <div class="container_izquierda">
+        <span class="icon-circle-left" [routerLink]="['/']"></span>
+    </div>
+    <div class="container_derecha">
+        <div class="container_derecha_informacion">
+            <h2>
+                <a [routerLink]="['/login/registro']" class="opciones_sesion" id="register">Register</a>
+                or
+                <a [routerLink]="['/login/inicio']" class="opciones_sesion" id="login">Login</a>
+            </h2>
+            <div class="container_derecha_informacion_login">
+                <router-outlet></router-outlet>
+                <!-- <div class="container_derecha_informacion_boton">
+                    <button type="button" id="boton_sesion">SIGN UP</button>
+                    <a href="javascript:funcion()" id="boton_sesion_contrario">Ya tengo cuenta</a>
+                </div> -->
+            </div>
+        </div>
+    </div>
 </div>
